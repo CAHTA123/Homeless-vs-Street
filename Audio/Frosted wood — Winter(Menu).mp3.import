@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bm3cedlqnvhgp"
+path="res://.godot/imported/Frosted wood — Winter(Menu).mp3-7c11dd7eb79dab1001bf13064abe6a6d.mp3str"
+
+[deps]
+
+source_file="res://Audio/Frosted wood — Winter(Menu).mp3"
+dest_files=["res://.godot/imported/Frosted wood — Winter(Menu).mp3-7c11dd7eb79dab1001bf13064abe6a6d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

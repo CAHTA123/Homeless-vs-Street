@@ -1,0 +1,144 @@
+[gd_scene load_steps=21 format=3 uid="uid://csranlgab8j2g"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_mygaj"]
+[ext_resource type="Texture2D" uid="uid://ctmfndosl7pob" path="res://Sprites/Homeless-Character/Homeless_2/Idle.png" id="1_rgcim"]
+[ext_resource type="Texture2D" uid="uid://cn787dxltqmak" path="res://Sprites/Homeless-Character/Homeless_2/Walk.png" id="3_7lykg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aet3e"]
+height = 65.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6f4h"]
+atlas = ExtResource("1_rgcim")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mh2x"]
+atlas = ExtResource("1_rgcim")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jev0x"]
+atlas = ExtResource("1_rgcim")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b3cs"]
+atlas = ExtResource("1_rgcim")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hbkg"]
+atlas = ExtResource("1_rgcim")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfi5l"]
+atlas = ExtResource("1_rgcim")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueo2w"]
+atlas = ExtResource("1_rgcim")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gto0v"]
+atlas = ExtResource("3_7lykg")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bugo"]
+atlas = ExtResource("3_7lykg")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iusuq"]
+atlas = ExtResource("3_7lykg")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi63p"]
+atlas = ExtResource("3_7lykg")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iemjd"]
+atlas = ExtResource("3_7lykg")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4bhy"]
+atlas = ExtResource("3_7lykg")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h27e4"]
+atlas = ExtResource("3_7lykg")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u116"]
+atlas = ExtResource("3_7lykg")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ug6b2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6f4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mh2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jev0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b3cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hbkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfi5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueo2w")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gto0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bugo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iusuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi63p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iemjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4bhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h27e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u116")
+}],
+"loop": true,
+"name": &"WALK",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_mygaj")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32.5)
+shape = SubResource("CapsuleShape2D_aet3e")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+position = Vector2(3, -64)
+sprite_frames = SubResource("SpriteFrames_ug6b2")
+animation = &"WALK"
+autoplay = "IDLE"
+frame_progress = 0.968464
+
+[connection signal="animation_finished" from="Anim" to="." method="_on_animated_sprite_2d_animation_finished"]

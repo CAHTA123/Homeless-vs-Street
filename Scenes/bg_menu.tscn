@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4bytdo48gs78"]
+
+[ext_resource type="Texture2D" uid="uid://iv7xgxu202sc" path="res://Sprites/city-backgrounds/city 7/1.png" id="1_w05r1"]
+[ext_resource type="Texture2D" uid="uid://bpsw2wt748281" path="res://Sprites/city-backgrounds/city 7/2.png" id="2_frl61"]
+[ext_resource type="Texture2D" uid="uid://bm2mv3acvojdr" path="res://Sprites/city-backgrounds/city 7/3.png" id="3_7v12c"]
+[ext_resource type="Texture2D" uid="uid://c21nd3pj0s4bw" path="res://Sprites/city-backgrounds/city 7/4.png" id="4_fmv7o"]
+[ext_resource type="Texture2D" uid="uid://cg2gmrcsbow6w" path="res://Sprites/city-backgrounds/city 7/5.png" id="5_ackps"]
+[ext_resource type="AudioStream" uid="uid://bm3cedlqnvhgp" path="res://Audio/Frosted wood — Winter(Menu).mp3" id="6_j6ckm"]
+
+[node name="BG_Menu" type="ParallaxBackground"]
+offset = Vector2(640, 360)
+scale = Vector2(2.225, 2.225)
+transform = Transform2D(2.225, 0, 0, 2.225, 640, 360)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="1" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_w05r1")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(576, 0)
+
+[node name="2" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("2_frl61")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(576, 0)
+
+[node name="3" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("3_7v12c")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(576, 0)
+
+[node name="4" type="Sprite2D" parent="ParallaxLayer4"]
+texture = ExtResource("4_fmv7o")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(576, 0)
+
+[node name="5" type="Sprite2D" parent="ParallaxLayer5"]
+texture = ExtResource("5_ackps")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_j6ckm")
+autoplay = true
