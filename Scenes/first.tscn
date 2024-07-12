@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://whgd20qamqe0"]
+[gd_scene load_steps=6 format=3 uid="uid://whgd20qamqe0"]
 
 [ext_resource type="PackedScene" uid="uid://csranlgab8j2g" path="res://Scenes/player.tscn" id="1_o35ji"]
 [ext_resource type="PackedScene" uid="uid://d4mg8jrr875wx" path="res://Scenes/bg_1.tscn" id="2_c084g"]
+[ext_resource type="PackedScene" uid="uid://31el5pbxksew" path="res://Scenes/transition.tscn" id="3_xlqtw"]
+[ext_resource type="PackedScene" uid="uid://bxxvnikayv2y" path="res://Scenes/menu.tscn" id="4_d2kqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmcal"]
 size = Vector2(2000, 100)
@@ -15,10 +17,13 @@ scale = Vector2(1.40211, 2.82236)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_rmcal")
 
-[node name="Player" parent="." instance=ExtResource("1_o35ji")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_o35ji")]
 position = Vector2(598, 382)
 
 [node name="BG_1" parent="." instance=ExtResource("2_c084g")]
 offset = Vector2(640, 360)
 scale = Vector2(0.67, 0.67)
 transform = Transform2D(0.67, 0, 0, 0.67, 640, 360)
+
+[node name="transition" parent="." instance=ExtResource("3_xlqtw")]
+scenes = Array[PackedScene]([ExtResource("4_d2kqq"), null])

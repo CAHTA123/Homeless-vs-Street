@@ -16,15 +16,16 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED
 		if not is_walking:
+			$Anim.offset.x = -8.15
 			$Anim.play("WALK")
 			is_walking = true
 		$Anim.scale.x = direction 
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_walking:
+			$Anim.offset.x = 0
 			$Anim.play("IDLE")
 			is_walking = false
-
 	move_and_slide()
 
 
