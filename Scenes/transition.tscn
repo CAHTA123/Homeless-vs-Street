@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://31el5pbxksew"]
+[gd_scene load_steps=5 format=3 uid="uid://4624be0vsiom"]
 
 [ext_resource type="Script" path="res://Scenes/transition.gd" id="1_u68qh"]
+[ext_resource type="PackedScene" uid="uid://csranlgab8j2g" path="res://Scenes/player.tscn" id="2_phy16"]
+[ext_resource type="PackedScene" uid="uid://whgd20qamqe0" path="res://Scenes/first.tscn" id="3_wjy7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqvx4"]
 size = Vector2(50, 720)
@@ -8,6 +10,7 @@ size = Vector2(50, 720)
 [node name="transition" type="Node2D"]
 position = Vector2(0, 360)
 script = ExtResource("1_u68qh")
+scenes = Array[PackedScene]([ExtResource("2_phy16"), ExtResource("3_wjy7h")])
 
 [node name="Area1" type="Area2D" parent="."]
 
