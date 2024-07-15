@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemFromResource" load_steps=2 format=3 uid="uid://cub3v6r3djuq4"]
+
+[ext_resource type="Script" path="res://Scripts/InventorySystem/AbstractItem.gd" id="1_jbn58"]
+
+[resource]
+script = ExtResource("1_jbn58")
+item_name = "Beer"
+type = 1

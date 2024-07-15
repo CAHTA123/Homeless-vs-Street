@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemFromResource" load_steps=2 format=3 uid="uid://c7x5ahbp5fo0a"]
+
+[ext_resource type="Script" path="res://Scripts/InventorySystem/AbstractItem.gd" id="1_073li"]
+
+[resource]
+script = ExtResource("1_073li")
+item_name = "Cheese"
+type = 3

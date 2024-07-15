@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemFromResource" load_steps=2 format=3 uid="uid://d1gwrg205sulr"]
+
+[ext_resource type="Script" path="res://Scripts/InventorySystem/AbstractItem.gd" id="1_6kbgo"]
+
+[resource]
+script = ExtResource("1_6kbgo")
+item_name = "Knife"
+type = 0

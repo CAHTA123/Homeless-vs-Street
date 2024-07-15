@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://csranlgab8j2g"]
+[gd_scene load_steps=22 format=3 uid="uid://csranlgab8j2g"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mygaj"]
 [ext_resource type="Texture2D" uid="uid://ctmfndosl7pob" path="res://Sprites/Homeless-Character/Homeless_2/Idle.png" id="1_rgcim"]
 [ext_resource type="Texture2D" uid="uid://cn787dxltqmak" path="res://Sprites/Homeless-Character/Homeless_2/Walk.png" id="3_7lykg"]
+[ext_resource type="PackedScene" uid="uid://bi63872o5b5o7" path="res://Scenes/InventoryScenes/PlayerInventory.tscn" id="4_na8f8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aet3e"]
 height = 65.0
@@ -140,5 +141,7 @@ sprite_frames = SubResource("SpriteFrames_ug6b2")
 animation = &"WALK"
 autoplay = "IDLE"
 frame_progress = 0.968464
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_na8f8")]
 
 [connection signal="animation_finished" from="Anim" to="." method="_on_animated_sprite_2d_animation_finished"]
