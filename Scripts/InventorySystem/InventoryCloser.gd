@@ -2,8 +2,6 @@ extends TextureRect
 
 class_name InventoryCloser
 
-@onready var slot_box = $SlotBoxContainer
-
 func _ready():
 	get_viewport().size_changed.connect(_on_viewport_resized)
 	_on_viewport_resized()

@@ -14,6 +14,7 @@ func _input(event):
 	if event is InputEventKey:
 		if event.keycode == KEY_ESCAPE:
 			set_item_empty_slot(preload("res://Resources/Items/Beer.tres"))
+			return
 
 func set_item_empty_slot(new_item: ItemFromResource):
 	if player_inventory:

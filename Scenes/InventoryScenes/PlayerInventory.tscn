@@ -13,24 +13,6 @@ script = ExtResource("1_3glqo")
 player_inventory = Array[Resource("res://Scripts/InventorySystem/AbstractItem.gd")]([ExtResource("2_spukx"), ExtResource("3_0lanf"), ExtResource("4_0ewny"), null, null])
 slot_parent = NodePath("TextureRect/SlotBoxContainer")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="InventoryContainer" type="MarginContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -64.0
-grow_horizontal = 0
-grow_vertical = 2
-
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(192, 0)
 anchors_preset = 11
