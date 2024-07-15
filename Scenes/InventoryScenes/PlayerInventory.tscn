@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi63872o5b5o7"]
+[gd_scene load_steps=8 format=3 uid="uid://bi63872o5b5o7"]
 
 [ext_resource type="Script" path="res://Scripts/InventorySystem/PlayerInventoryUpdater.gd" id="1_3glqo"]
 [ext_resource type="Script" path="res://Scripts/InventorySystem/InventoryCloser.gd" id="1_wnyuh"]
 [ext_resource type="Texture2D" uid="uid://c2rltn0vhqj58" path="res://Sprites/Ui/Inventory/InventoryBackground.png" id="2_3s5j6"]
 [ext_resource type="PackedScene" uid="uid://7cxexta07bjl" path="res://Scenes/InventoryScenes/Slot.tscn" id="2_5m55j"]
+[ext_resource type="Resource" uid="uid://cub3v6r3djuq4" path="res://Resources/Items/Beer.tres" id="2_spukx"]
+[ext_resource type="Resource" uid="uid://c7x5ahbp5fo0a" path="res://Resources/Items/Cheese.tres" id="3_0lanf"]
+[ext_resource type="Resource" uid="uid://b0p6qvgkc38b" path="res://Resources/Items/Hat.tres" id="4_0ewny"]
 
 [node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("slot_parent")]
 script = ExtResource("1_3glqo")
+player_inventory = Array[Resource("res://Scripts/InventorySystem/AbstractItem.gd")]([ExtResource("2_spukx"), ExtResource("3_0lanf"), ExtResource("4_0ewny"), null, null])
 slot_parent = NodePath("TextureRect/SlotBoxContainer")
 
 [node name="Control" type="Control" parent="."]
@@ -52,4 +56,16 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="InventorySlot" parent="TextureRect/SlotBoxContainer" instance=ExtResource("2_5m55j")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="TextureRect/SlotBoxContainer" instance=ExtResource("2_5m55j")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="TextureRect/SlotBoxContainer" instance=ExtResource("2_5m55j")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="TextureRect/SlotBoxContainer" instance=ExtResource("2_5m55j")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="TextureRect/SlotBoxContainer" instance=ExtResource("2_5m55j")]
 layout_mode = 2

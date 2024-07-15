@@ -9,3 +9,16 @@ func _ready():
 	for i in range(player_inventory.size()):
 		if slot_parent.get_child(i) is InventorySlot:
 			slot_parent.get_child(i).set_item(player_inventory[i])
+
+func _input(event):
+	if event is InputEventKey:
+		if event.keycode == KEY_ESCAPE:
+			set_item_empty_slot(preload("res://Resources/Items/Beer.tres"))
+
+func set_item_empty_slot(new_item: ItemFromResource):
+	if player_inventory:
+		var empty_inventory: Array[ItemFromResource] = player_inventory.filter(func(item): return item == null)
+		var empty_slots: Array = slot_parent.get_children().filter(func(slot: InventorySlot): return slot.get_item() == null)
+		if empty_inventory.size() > 0 and empty_slots.size() > 0:
+			empty_inventory[0] = new_item
+			empty_slots[0].set_item(empty_inventory[0])

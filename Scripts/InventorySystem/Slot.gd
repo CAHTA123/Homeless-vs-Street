@@ -11,3 +11,5 @@ func get_item() -> ItemFromResource:
 
 func set_item(new_item: ItemFromResource):
 	item = new_item
+	if item != null:
+		texture = item.get_texture()

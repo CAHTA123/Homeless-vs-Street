@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemFromResource" load_steps=4 format=3 uid="uid://b0p6qvgkc38b"]
+
+[ext_resource type="Script" path="res://Scripts/InventorySystem/AbstractItem.gd" id="1_6r1gt"]
+[ext_resource type="Texture2D" uid="uid://cv83kdlen72t2" path="res://Sprites/Ui/Inventory/Items.png" id="2_14cyt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8wf7"]
+atlas = ExtResource("2_14cyt")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_6r1gt")
+item_name = "Hat"
+type = 2
+texture = SubResource("AtlasTexture_d8wf7")
