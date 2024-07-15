@@ -1,12 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://7cxexta07bjl"]
+[gd_scene load_steps=2 format=3 uid="uid://7cxexta07bjl"]
 
-[ext_resource type="Texture2D" uid="uid://djfdu0fqxihg2" path="res://Sprites/Ui/Kenney/PNG/Default/Panel/panel-001.png" id="1_vkeq2"]
 [ext_resource type="Script" path="res://Scripts/InventorySystem/Slot.gd" id="2_i25yl"]
 
 [node name="InventorySlot" type="TextureRect"]
-offset_right = 40.0
-offset_bottom = 40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("1_vkeq2")
+custom_minimum_size = Vector2(96, 96)
+offset_right = 96.0
+offset_bottom = 96.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
 script = ExtResource("2_i25yl")

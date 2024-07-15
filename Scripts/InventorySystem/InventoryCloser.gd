@@ -1,41 +1,21 @@
-extends VBoxContainer
+extends TextureRect
 
 class_name InventoryCloser
 
-@export var time: float = 0.1
-@export var tween_duartion: float = 0.1
-
-var mouse_enter: bool:
-	set(value):
-		if mouse_enter != value:
-			mouse_enter = value
-			if mouse_enter:
-				
-				var timer := get_tree().create_timer(time)
-				await timer.timeout
-				if mouse_enter:
-					visible = true
-			else:
-				visible = false
+@onready var slot_box = $SlotBoxContainer
 
 func _ready():
+	get_viewport().size_changed.connect(_on_viewport_resized)
+	_on_viewport_resized()
 	visible = false
-	modulate.a = 0
-	visibility_changed.connect(_on_visible_changed)
 
-func _on_visible_changed():
-	visible_animaiton(visible)
+func _on_viewport_resized():
+	anchors_preset = PRESET_RIGHT_WIDE
 
-func visible_animaiton(visual: bool):
-	if visual:
-		var tween := get_tree().create_tween()
-		print(modulate)
-		tween.tween_property(self, "modulate.a", 1, 1)
-		#tween.tween_property(self, "modulate", Color()
-
-func _input(event):
-	if event is InputEventMouseMotion:
-		if get_global_rect().has_point(get_global_mouse_position()):
-			mouse_enter = true
-		else:
-			mouse_enter = false
+func _unhandled_key_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_I:
+			if !visible:
+				visible = true
+				return
+			visible = false

@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi63872o5b5o7"]
+[gd_scene load_steps=5 format=3 uid="uid://bi63872o5b5o7"]
 
 [ext_resource type="Script" path="res://Scripts/InventorySystem/PlayerInventoryUpdater.gd" id="1_3glqo"]
 [ext_resource type="Script" path="res://Scripts/InventorySystem/InventoryCloser.gd" id="1_wnyuh"]
+[ext_resource type="Texture2D" uid="uid://c2rltn0vhqj58" path="res://Sprites/Ui/Inventory/InventoryBackground.png" id="2_3s5j6"]
 [ext_resource type="PackedScene" uid="uid://7cxexta07bjl" path="res://Scenes/InventoryScenes/Slot.tscn" id="2_5m55j"]
 
-[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("slot_parent")]
+[node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("slot_parent")]
 script = ExtResource("1_3glqo")
-slot_parent = NodePath("Control/InventoryContainer/SlotBoxContainer")
+slot_parent = NodePath("TextureRect/SlotBoxContainer")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -22,31 +23,33 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -187.0
+offset_left = -64.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 35
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 35
 
-[node name="SlotBoxContainer" type="VBoxContainer" parent="Control/InventoryContainer"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 47
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(192, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_3s5j6")
 script = ExtResource("1_wnyuh")
 
-[node name="InventorySlot" parent="Control/InventoryContainer/SlotBoxContainer" instance=ExtResource("2_5m55j")]
-layout_mode = 2
+[node name="SlotBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="InventorySlot2" parent="Control/InventoryContainer/SlotBoxContainer" instance=ExtResource("2_5m55j")]
-layout_mode = 2
-
-[node name="InventorySlot3" parent="Control/InventoryContainer/SlotBoxContainer" instance=ExtResource("2_5m55j")]
-layout_mode = 2
-
-[node name="InventorySlot4" parent="Control/InventoryContainer/SlotBoxContainer" instance=ExtResource("2_5m55j")]
-layout_mode = 2
-
-[node name="InventorySlot5" parent="Control/InventoryContainer/SlotBoxContainer" instance=ExtResource("2_5m55j")]
+[node name="InventorySlot" parent="TextureRect/SlotBoxContainer" instance=ExtResource("2_5m55j")]
 layout_mode = 2

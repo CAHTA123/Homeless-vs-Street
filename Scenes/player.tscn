@@ -142,6 +142,6 @@ animation = &"WALK"
 autoplay = "IDLE"
 frame_progress = 0.968464
 
-[node name="CanvasLayer" parent="." instance=ExtResource("4_na8f8")]
+[node name="Inventory" parent="." instance=ExtResource("4_na8f8")]
 
 [connection signal="animation_finished" from="Anim" to="." method="_on_animated_sprite_2d_animation_finished"]
