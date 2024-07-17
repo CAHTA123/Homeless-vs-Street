@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://cljk01px77b5f"]
+
+[ext_resource type="PackedScene" uid="uid://dsoviomm44n26" path="res://Scenes/lvl.tscn" id="1_fmwbd"]
+[ext_resource type="Texture2D" uid="uid://drk0vdhok3dr3" path="res://Sprites/BananaAssets/Ground/StonesRoad.png" id="2_pj2d6"]
+[ext_resource type="Texture2D" uid="uid://dwwdwjq57bhok" path="res://Sprites/BananaAssets/Background/WiresPole.png" id="2_tjgy2"]
+[ext_resource type="Texture2D" uid="uid://c04pk658b6cof" path="res://Sprites/BananaAssets/Decor/GroundDecor.png" id="3_nxln5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpamq"]
+atlas = ExtResource("3_nxln5")
+region = Rect2(127.858, 61.8846, 31.1424, 34.1154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br016"]
+atlas = ExtResource("3_nxln5")
+region = Rect2(95.7791, 62.124, 16.5181, 33.876)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlxwn"]
+atlas = ExtResource("3_nxln5")
+region = Rect2(60.5884, 56.8573, 21.7847, 39.1427)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eiyg2"]
+atlas = ExtResource("3_nxln5")
+region = Rect2(0, 0, 47.3254, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6egq"]
+atlas = ExtResource("2_pj2d6")
+region = Rect2(0, 0, 240, 32)
+
+[node name="one" instance=ExtResource("1_fmwbd")]
+
+[node name="WiresPole" type="Sprite2D" parent="BG/ParallaxLayer" index="0"]
+position = Vector2(715, 379)
+scale = Vector2(7, 7)
+texture = ExtResource("2_tjgy2")
+
+[node name="GroundDecor2" type="Sprite2D" parent="BG/ParallaxLayer3" index="0"]
+position = Vector2(1489, 541)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_vpamq")
+
+[node name="GroundDecor" type="Sprite2D" parent="BG/ParallaxLayer4" index="0"]
+position = Vector2(380, 539)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_br016")
+
+[node name="GroundDecor" type="Sprite2D" parent="BG/ParallaxLayer5" index="0"]
+position = Vector2(1010, 526)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_wlxwn")
+
+[node name="GroundDecor2" type="Sprite2D" parent="BG/ParallaxLayer5" index="1"]
+position = Vector2(-187, 533)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_wlxwn")
+
+[node name="GroundDecor2" type="Sprite2D" parent="BG/ParallaxLayer6" index="0"]
+position = Vector2(671, 385)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_eiyg2")
+
+[node name="GroundDecor4" type="Sprite2D" parent="BG/ParallaxLayer6" index="1"]
+position = Vector2(1275, 385)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_eiyg2")
+
+[node name="GroundDecor6" type="Sprite2D" parent="BG/ParallaxLayer6" index="2"]
+position = Vector2(55, 385)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_eiyg2")
+
+[node name="StonesRoad" type="Sprite2D" parent="BG/ParallaxLayer7" index="0"]
+texture_filter = 1
+position = Vector2(689, 750)
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_p6egq")

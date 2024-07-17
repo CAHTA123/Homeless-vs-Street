@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsoviomm44n26"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmaap"]
+size = Vector2(2000, 100)
+
+[node name="lvl" type="Node2D"]
+
+[node name="BG" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="BG"]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="BG"]
+motion_scale = Vector2(0.3, 0.3)
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="BG"]
+motion_scale = Vector2(0.4, 0.4)
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="BG"]
+motion_scale = Vector2(0.45, 0.45)
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="BG"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="BG"]
+motion_scale = Vector2(0.6, 0.6)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(588, 710)
+scale = Vector2(1.40211, 2.82236)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_tmaap")
