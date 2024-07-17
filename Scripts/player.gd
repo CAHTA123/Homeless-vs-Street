@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @export var SPEED = 300.0
-@export var JUMP_VELOCITY = -1000
-var gravity = 2000.0
+@export var JUMP_VELOCITY = -400.0
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_walking = false
 
 func _physics_process(delta):
