@@ -26,6 +26,5 @@ func _enter_tree() -> void:
 
 ### Signals
 
-
 func _on_dialogue_ended(_resource: DialogueResource):
 	get_tree().quit()

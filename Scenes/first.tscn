@@ -25,6 +25,4 @@ scale = Vector2(0.67, 0.67)
 transform = Transform2D(0.67, 0, 0, 0.67, 640, 360)
 
 [node name="GarbageContainer" parent="." instance=ExtResource("3_fyvw3")]
-
-[node name="GarbageContainer2" parent="." node_paths=PackedStringArray("search_bar") instance=ExtResource("3_fyvw3")]
-search_bar = NodePath("../GarbageContainer/ProgressBar")
+position = Vector2(897, 445)
