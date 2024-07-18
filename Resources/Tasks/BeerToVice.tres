@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TaskFromResource" load_steps=2 format=3 uid="uid://8vnnfgp7dfnp"]
+
+[ext_resource type="Script" path="res://Scripts/TaskSystem/TaskFromResource.gd" id="1_mnavl"]
+
+[resource]
+script = ExtResource("1_mnavl")
+task_name = "ViceBeer"
+task_essence = "Give the beer to Vice"

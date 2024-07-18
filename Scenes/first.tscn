@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://whgd20qamqe0"]
+[gd_scene load_steps=5 format=3 uid="uid://whgd20qamqe0"]
 
 [ext_resource type="PackedScene" uid="uid://csranlgab8j2g" path="res://Scenes/player.tscn" id="1_o35ji"]
 [ext_resource type="PackedScene" uid="uid://d4mg8jrr875wx" path="res://Scenes/bg_1.tscn" id="2_c084g"]
+[ext_resource type="PackedScene" uid="uid://c5g11f0dgigo3" path="res://Scenes/GarbageContainer.tscn" id="3_fyvw3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmcal"]
 size = Vector2(2000, 100)
@@ -22,3 +23,8 @@ position = Vector2(598, 382)
 offset = Vector2(640, 360)
 scale = Vector2(0.67, 0.67)
 transform = Transform2D(0.67, 0, 0, 0.67, 640, 360)
+
+[node name="GarbageContainer" parent="." instance=ExtResource("3_fyvw3")]
+
+[node name="GarbageContainer2" parent="." node_paths=PackedStringArray("search_bar") instance=ExtResource("3_fyvw3")]
+search_bar = NodePath("../GarbageContainer/ProgressBar")

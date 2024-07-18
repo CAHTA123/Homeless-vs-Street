@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5g11f0dgigo3"]
+
+[ext_resource type="Script" path="res://Scripts/ItemsTakeSystem/GarbageContainer.gd" id="1_q86nk"]
+[ext_resource type="Script" path="res://Scripts/ItemsTakeSystem/GarbageDroppedSaver.gd" id="2_ms4k1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swgk6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhhno"]
+bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2wx2"]
+bg_color = Color(0.934009, 0.37808, 0.569193, 1)
+
+[node name="GarbageContainer" type="Area2D" node_paths=PackedStringArray("search_bar")]
+script = ExtResource("1_q86nk")
+search_bar = NodePath("ProgressBar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_swgk6")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -25.0
+offset_top = -33.0
+offset_right = 25.0
+offset_bottom = -18.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qhhno")
+theme_override_styles/fill = SubResource("StyleBoxFlat_y2wx2")
+max_value = 10000.0
+show_percentage = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.07, 3.07)
+
+[node name="Garbage" type="Node2D" parent="." node_paths=PackedStringArray("container")]
+script = ExtResource("2_ms4k1")
+container = NodePath("..")
+file_start_path = "user://garbage_data"
