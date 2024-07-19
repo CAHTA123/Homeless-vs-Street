@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bi63872o5b5o7" path="res://Scenes/InventoryScenes/PlayerInventory.tscn" id="9_16yvl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmcal"]
-size = Vector2(2046.99, 97.478)
+size = Vector2(2000, 97.478)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nax8p"]
 texture = ExtResource("4_a3gyf")
@@ -108,7 +108,7 @@ position = Vector2(588, 710)
 scale = Vector2(1.40211, 2.82236)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-23.4968, 1.26102)
+position = Vector2(0, 1.26102)
 shape = SubResource("RectangleShape2D_rmcal")
 
 [node name="BG_1" parent="." instance=ExtResource("2_c084g")]
@@ -118,7 +118,10 @@ transform = Transform2D(0.67, 0, 0, 0.67, 640, 360)
 
 [node name="GarbageContainer" parent="." instance=ExtResource("3_fyvw3")]
 position = Vector2(272, 521)
+search_time = null
 garbage_item = ExtResource("4_hjcm8")
+random_items = null
+interact_button = null
 
 [node name="CollisionShape2D" parent="GarbageContainer" index="0"]
 position = Vector2(-8, 31)
@@ -140,6 +143,5 @@ position = Vector2(155, 576)
 speed = 200.0
 
 [node name="Inventory" parent="." instance=ExtResource("9_16yvl")]
-player_inventory = Array[Resource("res://Scripts/InventorySystem/AbstractItem.gd")]([null, null, null, null, null])
 
 [editable path="GarbageContainer"]

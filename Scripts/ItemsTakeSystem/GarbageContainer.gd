@@ -2,7 +2,13 @@ extends InteractArea
 
 class_name GarbageContainer
 
+#region Экспорт
 # Настройки отображения поиска
+@export_category("Level")
+
+@export var level: LevelGame
+@export var inventory_node: PlayerInventoryPlaceholder
+
 @export_category("Search preferences")
 @export var search_bar: Range 
 @export var garbage_saver: GarbageDroppFlagSaver
@@ -10,6 +16,7 @@ class_name GarbageContainer
 
 @export_category("Random items")
 @export var garbage_item: ItemFromResource
+
 @export var random_items: Array[ItemFromResource] = [
 	preload("res://Resources/Items/Beer.tres"),
 	preload("res://Resources/Items/Cheese.tres"),
@@ -17,6 +24,7 @@ class_name GarbageContainer
 	preload("res://Resources/Items/Knife.tres"),
 	preload("res://Resources/Items/TinCan.tres")
 ]
+#endregion
 
 #region Настройки поиска анимации
 # анимация для прокрутки bar`а
@@ -56,27 +64,37 @@ var is_searching: bool:
 var is_dropped: bool
 #endregion
 
+#region Сигналы
+# Начало поиска
 signal search_started
+# Остановка поиска
 signal search_stopped
+# Бросок предмета
 signal item_dropped
+#endregion
 
 func _ready():
 	# Подключаем сигналы
 	super._ready()
-	# Перестаем искать, если где-то это запускаем
+	# Перестаем искать, если где-то запускаем поиск
 	is_searching = false
-	check_garbage_item()
-	
-	if garbage_item:
-		print(garbage_item)
-# Если предмет выбрашен, то удаляем garbage_item, иначе рандомим
+	# Если предмет должен быть то ищем инвентарь и рандомим
+	search_inventory()
+
+func search_inventory():
+	for child in get_tree().root.get_children():
+		if child is LevelGame:
+			for child_node in child.get_children():
+				if child_node is PlayerInventoryPlaceholder:
+					inventory_node = child_node
 
 #region Назначение предмета
 func check_garbage_item():
+#Если предмет выбрашен, то удаляем garbage_item, иначе рандомим
 	if is_dropped:
 		garbage_item = null
-		return
-	random_garbage_item()
+		return false
+	return true
 
 func random_garbage_item():
 	garbage_item = random_items.pick_random()
@@ -123,19 +141,16 @@ func finish_search():
 	# Если мы не выкинули предмет, то кидаем
 	if !is_dropped:
 		is_dropped = true
+		if inventory_node:
+			inventory_node.set_item_empty_slot(garbage_item)
 		# Сигнал выброса предмета
 		emit_signal("item_dropped")
 
 	# В любом случае сбрасываем шкалу на 0
 	search_bar.value = 0
-
 #endregion 
 
 #region Сеттеры и Геттеры
-# Назначаем время поиска
-func set_search_time(new_time: float):
-	search_time = new_time
-
 # Назначаем флаг выброса айтема
 func set_drop_mode(new_mode: bool):
 	is_dropped = new_mode
