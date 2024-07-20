@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqkyfxvgu5wpf"]
+
+[ext_resource type="PackedScene" uid="uid://bo1fp4iq0k3eg" path="res://Scenes/lvl.tscn" id="1_lvitl"]
+[ext_resource type="AudioStream" uid="uid://cvoulllcfpr6r" path="res://Audio/Dontcry_Glimlip_Sleepermane_-_Jiro_Dreams_(2).mp3" id="2_px6kq"]
+
+[node name="lvl-2" instance=ExtResource("1_lvitl")]
+
+[node name="Audio" parent="." index="2"]
+stream = ExtResource("2_px6kq")

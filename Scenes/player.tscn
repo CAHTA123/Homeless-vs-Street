@@ -70,9 +70,9 @@ script = ExtResource("1_mygaj")
 texture_filter = 3
 position = Vector2(-1, -13)
 sprite_frames = SubResource("SpriteFrames_ug6b2")
-animation = &"WALK"
+animation = &"IDLE"
 autoplay = "IDLE"
-frame_progress = 0.395554
+frame_progress = 0.240439
 
 [node name="Shape" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-1.66667, -19.6667, 3.66667, -19.6667, 3.66667, 0, 1, 0, -4, 0, -4, -14, -1.66667, -14)

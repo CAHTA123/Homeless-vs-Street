@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7jp2naaw1e4i"]
+
+[ext_resource type="PackedScene" uid="uid://bo1fp4iq0k3eg" path="res://Scenes/lvl.tscn" id="1_e2qym"]
+[ext_resource type="Texture2D" uid="uid://dqic63qeu1omp" path="res://Sprites/BananaBoy assets/Backgrounds/1 Background/Front.png" id="2_l45r2"]
+[ext_resource type="Texture2D" uid="uid://dkic3702nnqvh" path="res://Sprites/BananaBoy assets/Backgrounds/1 Background/Medium.png" id="3_ji4lh"]
+[ext_resource type="AudioStream" uid="uid://b1qi3rconjwyf" path="res://Audio/Danijel Zambo - Stardust(1).mp3" id="4_d2jdv"]
+
+[node name="lvl-1" instance=ExtResource("1_e2qym")]
+
+[node name="BG" parent="." index="0"]
+offset = Vector2(640, 360)
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 640, 360)
+
+[node name="Front" type="Sprite2D" parent="BG/ParallaxLayer" index="0"]
+position = Vector2(20, 0)
+texture = ExtResource("2_l45r2")
+
+[node name="Medium" type="Sprite2D" parent="BG/ParallaxLayer2" index="0"]
+position = Vector2(25, 0)
+texture = ExtResource("3_ji4lh")
+
+[node name="Audio" parent="." index="2"]
+stream = ExtResource("4_d2jdv")

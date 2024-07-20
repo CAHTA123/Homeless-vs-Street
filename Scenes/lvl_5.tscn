@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://croauqe7omonj"]
+
+[ext_resource type="PackedScene" uid="uid://bo1fp4iq0k3eg" path="res://Scenes/lvl.tscn" id="1_cduwy"]
+[ext_resource type="AudioStream" uid="uid://c2udhl047ek35" path="res://Audio/We Are Worthy (5).mp3" id="2_o0otp"]
+
+[node name="lvl-5" instance=ExtResource("1_cduwy")]
+
+[node name="Audio" parent="." index="2"]
+stream = ExtResource("2_o0otp")
