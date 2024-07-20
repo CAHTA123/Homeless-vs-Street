@@ -33,5 +33,5 @@ func set_item_empty_slot(new_item: ItemFromResource):
 			empty_inventory[0] = new_item
 			empty_slots[0].set_item(empty_inventory[0])
 			var item_added_scene_instance: TaskItemAnimation = item_added_scene.instantiate()
-			item_added_scene_instance.set_item(new_item)
+			item_added_scene_instance.set_item(empty_inventory[0])
 			add_child(item_added_scene_instance)
