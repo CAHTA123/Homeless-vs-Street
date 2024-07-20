@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_mnavl")
 task_name = "ViceBeer"
-task_essence = "Give the beer to Vice"
+task_essence = "Bring beer for Vice"

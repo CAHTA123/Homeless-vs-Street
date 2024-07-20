@@ -36,5 +36,3 @@ theme_override_styles/background = SubResource("StyleBoxFlat_qhhno")
 theme_override_styles/fill = SubResource("StyleBoxFlat_y2wx2")
 max_value = 10000.0
 show_percentage = false
-
-[node name="Timer" type="Timer" parent="."]

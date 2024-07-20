@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://bjh8ppfbs5x02"
+path="res://.godot/imported/EndGame.dialogue-4c6c4ec54ed6665457c71456bfaf1155.tres"
+
+[deps]
+
+source_file="res://Resources/Dialogues/EndGame.dialogue"
+dest_files=["res://.godot/imported/EndGame.dialogue-4c6c4ec54ed6665457c71456bfaf1155.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://divaea18qg4ww"
+path="res://.godot/imported/MeetTrader.dialogue-fa6284bbbcdebce4f9de42b7844ff82c.tres"
+
+[deps]
+
+source_file="res://Resources/Dialogues/MeetTrader.dialogue"
+dest_files=["res://.godot/imported/MeetTrader.dialogue-fa6284bbbcdebce4f9de42b7844ff82c.tres"]
+
+[params]
+
+defaults=true

@@ -1,13 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://whgd20qamqe0"]
+[gd_scene load_steps=14 format=3 uid="uid://whgd20qamqe0"]
 
-[ext_resource type="Texture2D" uid="uid://brp5wyy8nap7m" path="res://Sprites/BananaBoy assets/Backgrounds/Day/Background.png" id="1_nyum2"]
 [ext_resource type="PackedScene" uid="uid://csranlgab8j2g" path="res://Scenes/player.tscn" id="1_o35ji"]
+[ext_resource type="Script" path="res://Scripts/lvl.gd" id="1_sx4b4"]
 [ext_resource type="PackedScene" uid="uid://d4mg8jrr875wx" path="res://Scenes/bg_1.tscn" id="2_c084g"]
 [ext_resource type="PackedScene" uid="uid://c5g11f0dgigo3" path="res://Scenes/GarbageContainer.tscn" id="3_fyvw3"]
 [ext_resource type="Texture2D" uid="uid://c0qbpuxyrdb41" path="res://Sprites/BananaBoy assets/Floor and grounds/EarthGround.png" id="4_a3gyf"]
 [ext_resource type="Resource" uid="uid://cub3v6r3djuq4" path="res://Resources/Items/Beer.tres" id="4_hjcm8"]
 [ext_resource type="Texture2D" uid="uid://ppr1ev5pw8e8" path="res://Sprites/BananaBoy assets/Items/Items.png" id="6_udapu"]
 [ext_resource type="PackedScene" uid="uid://bi63872o5b5o7" path="res://Scenes/InventoryScenes/PlayerInventory.tscn" id="9_16yvl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wa4yu"]
+load_path = "res://.godot/imported/Background.png-e6f3b35169be8dbe86a8f01b115a7a50.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmcal"]
 size = Vector2(2046.99, 97.478)
@@ -73,9 +76,7 @@ texture = ExtResource("6_udapu")
 8:4/0 = 0
 10:3/size_in_atlas = Vector2i(2, 3)
 10:3/0 = 0
-4:0/size_in_atlas = Vector2i(2, 6)
 4:0/0 = 0
-0:3/size_in_atlas = Vector2i(3, 3)
 0:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ltjp4"]
@@ -83,11 +84,12 @@ sources/0 = SubResource("TileSetAtlasSource_nax8p")
 sources/1 = SubResource("TileSetAtlasSource_vrope")
 
 [node name="First" type="Node2D"]
+script = ExtResource("1_sx4b4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = ExtResource("1_nyum2")
+texture = SubResource("CompressedTexture2D_wa4yu")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(588, 710)

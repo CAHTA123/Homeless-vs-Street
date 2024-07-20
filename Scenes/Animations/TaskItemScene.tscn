@@ -1,9 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dw14d0gekoivj"]
 
 [ext_resource type="Script" path="res://Scripts/TaskItemAnimation.gd" id="1_qdtrm"]
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_j6lp2"]
-width = 150
+[ext_resource type="Texture2D" uid="uid://bdr3d3fomax8a" path="res://Sprites/BananaBoy assets/Ui/Task_item selected/Item.png" id="2_o18f3"]
 
 [sub_resource type="Animation" id="Animation_vsdof"]
 length = 0.001
@@ -66,7 +64,7 @@ _data = {
 "Take item animation": SubResource("Animation_hktoh")
 }
 
-[node name="TaskItemScene" type="Control" node_paths=PackedStringArray("anim", "texture_viewer")]
+[node name="TaskItemScene" type="Control" node_paths=PackedStringArray("anim", "slot", "texture_viewer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,6 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qdtrm")
 anim = NodePath("AnimationPlayer")
+slot = NodePath("CanvasLayer/Slot")
 texture_viewer = NodePath("CanvasLayer/Slot/TextureViewer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -92,7 +91,7 @@ offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(75, 75)
-texture = SubResource("CurveXYZTexture_j6lp2")
+texture = ExtResource("2_o18f3")
 
 [node name="TextureViewer" type="TextureRect" parent="CanvasLayer/Slot"]
 layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi63872o5b5o7"]
+[gd_scene load_steps=8 format=3 uid="uid://bi63872o5b5o7"]
 
 [ext_resource type="Script" path="res://Scripts/InventorySystem/PlayerInventoryUpdater.gd" id="1_3glqo"]
 [ext_resource type="Script" path="res://Scripts/InventorySystem/InventoryCloser.gd" id="1_wnyuh"]
@@ -6,10 +6,7 @@
 [ext_resource type="Resource" uid="uid://cub3v6r3djuq4" path="res://Resources/Items/Beer.tres" id="2_spukx"]
 [ext_resource type="Resource" uid="uid://c7x5ahbp5fo0a" path="res://Resources/Items/Cheese.tres" id="3_0lanf"]
 [ext_resource type="Resource" uid="uid://b0p6qvgkc38b" path="res://Resources/Items/Hat.tres" id="4_0ewny"]
-[ext_resource type="Texture2D" uid="uid://dqic63qeu1omp" path="res://Sprites/BananaBoy assets/Backgrounds/1 Background/Front.png" id="7_ans08"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_le6k8"]
-load_path = "res://.godot/imported/InventoryBackground.png-b3de113c68a6ad6f22a1b965be469f1a.ctex"
+[ext_resource type="Texture2D" uid="uid://c0q2cas0udwgq" path="res://Sprites/BananaBoy assets/Ui/Inventory/InventoryPanel.png" id="5_veskg"]
 
 [node name="Inventory" type="CanvasLayer" node_paths=PackedStringArray("slot_parent")]
 script = ExtResource("1_3glqo")
@@ -22,10 +19,12 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -64.0
+offset_left = -32.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = SubResource("CompressedTexture2D_le6k8")
+texture = ExtResource("5_veskg")
+expand_mode = 3
+stretch_mode = 5
 script = ExtResource("1_wnyuh")
 
 [node name="SlotBoxContainer" type="VBoxContainer" parent="TextureRect"]
@@ -42,7 +41,6 @@ mouse_filter = 2
 
 [node name="InventorySlot" parent="TextureRect/SlotBoxContainer" instance=ExtResource("2_5m55j")]
 layout_mode = 2
-texture = ExtResource("7_ans08")
 expand_mode = 1
 
 [node name="InventorySlot2" parent="TextureRect/SlotBoxContainer" instance=ExtResource("2_5m55j")]

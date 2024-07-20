@@ -2,14 +2,17 @@ extends Control
 
 class_name TaskItemAnimation
 
-enum TypeAnimation {Item, Task}
+var item_slot_texture = preload("res://Sprites/BananaBoy assets/Ui/Task_item selected/Item.png")
+var task_slot_texture = preload("res://Sprites/BananaBoy assets/Ui/Task_item selected/Task.png")
 
 @export var anim: AnimationPlayer
-@export var animation_type: TypeAnimation
 
 @export_category("Scenes")
+
+@export var slot: TextureRect
+
 @export_subgroup("Task Scene")
-@export var task_name: String
+@export var task: TaskFromResource
 
 @export_subgroup("Item scene")
 @export var item: ItemFromResource
@@ -17,20 +20,20 @@ enum TypeAnimation {Item, Task}
 
 func _ready():
 	global_position = get_viewport_rect().position
-	if animation_type == TypeAnimation.Item:
-		if item and texture_viewer:
-			texture_viewer.texture = item.get_texture() 
-	elif animation_type == TypeAnimation.Task:
-		if texture_viewer.get_parent() is TextureRect:
-			texture_viewer.get_parent().texture
+	if item:
+		texture_viewer.texture = item.get_texture()
+		slot.texture = item_slot_texture 
+	elif task != null:
+		texture_viewer.get_parent().texture
+		slot.texture = task_slot_texture
 	
 	if anim:
 		anim.play("Take item animation")
 		await anim.animation_finished
 		queue_free()
 
+func set_task(new_task: TaskFromResource):
+	task = new_task
+
 func set_item(new_item: ItemFromResource):
 	item = new_item
-
-func set_animation_type(new_type: TypeAnimation):
-	animation_type = new_type

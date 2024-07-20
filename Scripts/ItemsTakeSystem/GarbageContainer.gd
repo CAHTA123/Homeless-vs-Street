@@ -10,10 +10,11 @@ class_name GarbageContainer
 @export var inventory_node: PlayerInventoryPlaceholder
 
 @export_category("Search preferences")
-@export var search_bar: Range 
+@export var search_bar: Range
 @export var garbage_saver: GarbageDroppFlagSaver
 @export var search_time: float = 3.25
-
+@export_subgroup("Check values")
+@export var around_value = 0.001
 @export_category("Random items")
 @export var garbage_item: ItemFromResource
 
@@ -31,11 +32,7 @@ class_name GarbageContainer
 var tween: Tween
 
 # Времени на поиск осталось
-var search_time_left: float:
-	set(value):
-		search_time_left = value
-		if search_time_left <= 0:
-			search_time_left = search_time 
+var search_time_left: float
 
 # Дистанция при старте поиска
 var player_start_distance: float
@@ -48,7 +45,6 @@ var is_searching: bool:
 	set(value):
 		is_searching = value
 		# Когда начинается или заканчивается поиск, то мы высчитываем / прекращаем высчитывать дистанцию
-		set_physics_process(is_searching)
 		# Если есть Bar
 		if search_bar:
 			search_bar.visible = is_searching
@@ -59,6 +55,7 @@ var is_searching: bool:
 		else:
 			player_start_distance = global_position.distance_to(player.global_position)
 			start_search()
+		set_physics_process(is_searching)
 
 # Проверка на выдачу айтема
 var is_dropped: bool
@@ -78,8 +75,10 @@ func _ready():
 	super._ready()
 	# Перестаем искать, если где-то запускаем поиск
 	is_searching = false
+	
+	if check_garbage_item():
 	# Если предмет должен быть то ищем инвентарь и рандомим
-	search_inventory()
+		search_inventory()
 
 func search_inventory():
 	for child in get_tree().root.get_children():
@@ -123,11 +122,14 @@ func start_search():
 	# Устанавливаем время для поиска
 		# Если нет time_left`а, то тогда время поиска будет стандартной
 	var time: float
-	if search_time_left > 0:
+	if search_time_left > around_value:
 		time = search_time_left
 	else:
 		time = search_time
-	# Создаем анимацию поиска
+		search_time_left = search_time
+	
+	
+		# Создаем анимацию поиска
 	tween = get_tree().create_tween()
 	tween.tween_property(search_bar, "value", search_bar.max_value, time).set_trans(Tween.TRANS_LINEAR)
 	# По окончании анимации поиска мы вызываем метод конца поиска
@@ -143,11 +145,12 @@ func finish_search():
 		is_dropped = true
 		if inventory_node:
 			inventory_node.set_item_empty_slot(garbage_item)
-		# Сигнал выброса предмета
-		emit_signal("item_dropped")
+	# Сигнал выброса предмет
+	emit_signal("item_dropped")
 
 	# В любом случае сбрасываем шкалу на 0
 	search_bar.value = 0
+	search_time_left = search_time
 #endregion 
 
 #region Сеттеры и Геттеры
