@@ -27,6 +27,7 @@ elif GlobalDialogueState.is_complete and GlobalDialogueState.current_task != Glo
 	Vice: Deal. You need to find my friend, Sid.
 	Vice: He lives nearby. I'm not sure if he's still alive, but try to bring him back.
 	set GlobalDialogueState.current_task = GlobalDialogueState.all_tasks[1]
-
+	set GlobalDialogueState.dialogue_starter.current_dialogue += 1
 set GlobalDialogueState.is_talking = false
+
 => END

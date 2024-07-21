@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dm6rrv3c3jxaa" path="res://Scenes/Characters/Vice.tscn" id="9_q2qmy"]
 [ext_resource type="PackedScene" uid="uid://cxkn7wbsp06mx" path="res://Scenes/Characters/Sideney.tscn" id="9_vnmtd"]
 [ext_resource type="PackedScene" uid="uid://vssq8e3bin2p" path="res://Scenes/Characters/Trader.tscn" id="11_vq1ol"]
-[ext_resource type="PackedScene" uid="uid://b6bu0ovk4h7oh" path="res://Scenes/TaskObserver.tscn" id="12_13hs8"]
+[ext_resource type="PackedScene" uid="uid://cb31nxb2w6ben" path="res://Scenes/TaskObserver.tscn" id="12_13hs8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wa4yu"]
 load_path = "res://.godot/imported/Background.png-e6f3b35169be8dbe86a8f01b115a7a50.ctex"
@@ -112,15 +112,6 @@ offset = Vector2(640, 360)
 scale = Vector2(0.67, 0.67)
 transform = Transform2D(0.67, 0, 0, 0.67, 640, 360)
 
-[node name="GarbageContainer" parent="." node_paths=PackedStringArray("level", "inventory_node") instance=ExtResource("3_fyvw3")]
-position = Vector2(272, 521)
-level = NodePath("..")
-inventory_node = NodePath("../Inventory")
-garbage_item = ExtResource("4_hjcm8")
-
-[node name="CollisionShape2D" parent="GarbageContainer" index="0"]
-position = Vector2(-7.5, 23.375)
-
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_ltjp4")
@@ -151,19 +142,21 @@ scale = Vector2(7.5, 7.5)
 position = Vector2(1, 478)
 scale = Vector2(7.5, 7.5)
 
-[node name="DialogueInteractableArea" parent="Trader" index="0"]
-self_all_dialogues = Array[Resource("res://addons/dialogue_manager/dialogue_resource.gd")]([])
-
-[node name="CollisionShape2D" parent="Trader/DialogueInteractableArea" index="0"]
-position = Vector2(0, 3.03333)
-
-[node name="CharacterAnimation" parent="Trader" index="1"]
-position = Vector2(0, 0.133329)
-
 [node name="TaskObserver" parent="." instance=ExtResource("12_13hs8")]
 visible = false
 
-[connection signal="body_exited" from="GarbageContainer" to="GarbageContainer" method="_on_body_exited"]
+[node name="GarbageContainer2" parent="." instance=ExtResource("3_fyvw3")]
+position = Vector2(266, 531)
+garbage_item = ExtResource("4_hjcm8")
 
-[editable path="GarbageContainer"]
-[editable path="Trader"]
+[node name="GarbageContainer" parent="." instance=ExtResource("3_fyvw3")]
+position = Vector2(400, 531)
+garbage_item = ExtResource("4_hjcm8")
+
+[node name="GarbageContainer3" parent="." instance=ExtResource("3_fyvw3")]
+position = Vector2(910, 531)
+garbage_item = ExtResource("4_hjcm8")
+
+[node name="GarbageContainer4" parent="." instance=ExtResource("3_fyvw3")]
+position = Vector2(1054, 531)
+garbage_item = ExtResource("4_hjcm8")

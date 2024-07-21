@@ -13,6 +13,7 @@ var current_task: TaskFromResource:
 	set(value):
 		current_task = value
 		if current_task != null:
+			print("2323232323232")
 			is_complete = false
 			emit_signal("task_added")
 			current_task.task_completed.connect(emit_signal.bind("task_completed"))
@@ -65,6 +66,7 @@ func check_task_complete():
 							slot_from_ui.set_item(null)
 							child = null
 							complete_task()
+							break
 
 		elif current_task.task_type == TaskFromResource.TaskType.Lead:
 			if dialogue_starter.has_overlapping_areas():
@@ -74,4 +76,4 @@ func check_task_complete():
 							complete_task()
 
 func complete_task():
-	current_task.is_completed = true
+	current_task.is_complete = true

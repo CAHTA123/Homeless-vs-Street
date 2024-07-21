@@ -26,6 +26,7 @@ texture = ExtResource("5_veskg")
 expand_mode = 3
 stretch_mode = 5
 script = ExtResource("1_wnyuh")
+open_button = 81
 
 [node name="SlotBoxContainer" type="VBoxContainer" parent="TextureRect"]
 layout_mode = 1

@@ -19,10 +19,10 @@ enum CharacterType {Null, Vice, Sid, Trader}
 @export var needed: CharacterType
 @export var recipient: CharacterType
 
-var is_completed: bool:
+var is_complete: bool:
 	set(value):
-		is_completed = value 
-		if is_completed:
+		is_complete = value 
+		if is_complete:
 			GlobalDialogueState.current_task = null
 			emit_signal("task_completed")
 

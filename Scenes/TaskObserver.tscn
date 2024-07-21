@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6bu0ovk4h7oh"]
+[gd_scene load_steps=5 format=3 uid="uid://cb31nxb2w6ben"]
 
 [ext_resource type="Texture2D" uid="uid://doe2kl284mrnj" path="res://Sprites/BananaBoy assets/Ui/TaskObserver/TaskObserverPanel.png" id="1_3hlye"]
 [ext_resource type="Script" path="res://Scripts/TaskSystem/TaskObserver.gd" id="1_6ml61"]
