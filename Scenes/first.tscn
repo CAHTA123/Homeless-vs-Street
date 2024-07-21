@@ -151,6 +151,9 @@ scale = Vector2(7.5, 7.5)
 position = Vector2(1, 478)
 scale = Vector2(7.5, 7.5)
 
+[node name="DialogueInteractableArea" parent="Trader" index="0"]
+self_all_dialogues = Array[Resource("res://addons/dialogue_manager/dialogue_resource.gd")]([])
+
 [node name="CollisionShape2D" parent="Trader/DialogueInteractableArea" index="0"]
 position = Vector2(0, 3.03333)
 

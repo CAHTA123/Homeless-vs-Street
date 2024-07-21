@@ -6,9 +6,7 @@ class_name DialogueInteractableArea
 @export var self_character_type: TaskFromResource.CharacterType
 
 @export_group("Dialogues")
-@export var self_all_dialogues: Array [DialogueResource] = [
-	preload("res://Resources/Dialogues/Greeting.dialogue"),
-	preload("res://Resources/Dialogues/StartSearchExit.dialogue")]
+@export var self_all_dialogues: Array [DialogueResource] = []
 @export var current_dialogue: int
 
 func interact():

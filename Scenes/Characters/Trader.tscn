@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://vssq8e3bin2p"]
+[gd_scene load_steps=21 format=3 uid="uid://vssq8e3bin2p"]
 
 [ext_resource type="PackedScene" uid="uid://o6jyanfc3vds" path="res://Scenes/Characters/SimpleCharacter.tscn" id="1_3jq8c"]
 [ext_resource type="Script" path="res://Scripts/Characters/Anim.gd" id="2_2pp2q"]
 [ext_resource type="Texture2D" uid="uid://b4g385ukcfgbs" path="res://Sprites/BananaBoy assets/Characters/Trader/Trader stay animation.png" id="2_3b1hl"]
+[ext_resource type="Resource" uid="uid://divaea18qg4ww" path="res://Resources/Dialogues/MeetTrader.dialogue" id="3_64gix"]
 [ext_resource type="Script" path="res://Scripts/Interact/DialogueInteractableArea.gd" id="3_te7r5"]
 [ext_resource type="Texture2D" uid="uid://k8ve8ut6uyen" path="res://Sprites/BananaBoy assets/Characters/Trader/Trader walk animation.png" id="3_v84mb"]
 
@@ -111,9 +112,7 @@ animations = [{
 [node name="DialogueInteractableArea" type="Area2D" parent="." index="0"]
 script = ExtResource("3_te7r5")
 self_character_type = 3
-self_all_dialogues = null
-current_dialogue = null
-interact_button = null
+self_all_dialogues = Array[Resource("res://addons/dialogue_manager/dialogue_resource.gd")]([ExtResource("3_64gix")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteractableArea" index="0"]
 position = Vector2(0, 3)

@@ -20,8 +20,6 @@ var current_task: TaskFromResource:
 			return
 		is_complete = true
 
-var current_task_index: int
-
 var dialogue_starter: DialogueInteractableArea
 
 #region Сигналы
@@ -48,13 +46,9 @@ func get_current_task() -> TaskFromResource:
 	return current_task
 
 func task_add_scene():
-	task_completed.connect(next_task)
 	var task_scene_instance: TaskItemAnimation = preload("res://Animations/TaskItemScene.tscn").instantiate()
 	task_scene_instance.set_task(current_task)
 	get_tree().current_scene.add_child(task_scene_instance)
-
-func next_task():
-	current_task_index += 1
 
 func check_task_complete():
 	if current_task:
@@ -73,13 +67,11 @@ func check_task_complete():
 							complete_task()
 
 		elif current_task.task_type == TaskFromResource.TaskType.Lead:
-			print("1")
 			if dialogue_starter.has_overlapping_areas():
 				for child in dialogue_starter.get_overlapping_areas():
 					if child is DialogueInteractableArea:
 						if child.self_character_type == current_task.needed:
 							complete_task()
-	return false
 
 func complete_task():
 	current_task.is_completed = true
