@@ -48,29 +48,30 @@ func get_current_task() -> TaskFromResource:
 	return current_task
 
 func task_add_scene():
+	task_completed.connect(next_task)
 	var task_scene_instance: TaskItemAnimation = preload("res://Animations/TaskItemScene.tscn").instantiate()
 	task_scene_instance.set_task(current_task)
 	get_tree().current_scene.add_child(task_scene_instance)
 
+func next_task():
+	current_task_index += 1
+
 func check_task_complete():
 	if current_task:
-		print("2")
 		if current_task.task_type == TaskFromResource.TaskType.Bring:
-			print("3")
 			if inventory == null:
-				print("4")
 				if get_tree().current_scene is LevelGame:
-					print("5")
 					var level_scene: LevelGame = get_tree().current_scene
 					inventory = level_scene.get_inventory_node()
 			for child in inventory.player_inventory:
 				if child:
-					print("7")
 					if dialogue_starter.self_character_type == current_task.item_recipient:
-						return true
-						
+						current_task.is_completed = true
+
 		elif current_task.task_type == TaskFromResource.TaskType.Lead:
-			pass
-			
-			
+			if dialogue_starter.has_overlapping_areas():
+				for child in dialogue_starter.get_overlapping_areas():
+					if child is DialogueInteractableArea:
+						if child.self_character_type == current_task.needed:
+							current_task.is_completed = true
 	return false

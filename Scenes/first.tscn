@@ -140,7 +140,7 @@ position = Vector2(6.93333, -28.8)
 player_inventory = Array[Resource("res://Scripts/InventorySystem/AbstractItem.gd")]([null, null, null, null, null])
 
 [node name="Sid" parent="." instance=ExtResource("9_vnmtd")]
-position = Vector2(1006, 471)
+position = Vector2(756, 471)
 scale = Vector2(7.5, 7.5)
 
 [node name="Vice" parent="." instance=ExtResource("9_q2qmy")]

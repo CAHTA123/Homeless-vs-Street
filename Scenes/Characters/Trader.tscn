@@ -111,6 +111,9 @@ animations = [{
 [node name="DialogueInteractableArea" type="Area2D" parent="." index="0"]
 script = ExtResource("3_te7r5")
 self_character_type = 3
+self_all_dialogues = null
+current_dialogue = null
+interact_button = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteractableArea" index="0"]
 position = Vector2(0, 3)

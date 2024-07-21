@@ -23,6 +23,7 @@ var is_completed: bool:
 	set(value):
 		is_completed = value 
 		if is_completed:
+			GlobalDialogueState.current_task = null
 			emit_signal("task_completed")
 
 func get_needed_item() -> ItemFromResource.Type:

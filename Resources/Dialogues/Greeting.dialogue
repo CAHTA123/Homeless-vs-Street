@@ -1,4 +1,5 @@
 ~ start
+do GlobalDialogueState.check_task_complete()
 
 if !GlobalDialogueState.is_complete and GlobalDialogueState.current_task == null:
 	set GlobalDialogueState.is_talking = true
