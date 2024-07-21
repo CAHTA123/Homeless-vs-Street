@@ -10,10 +10,7 @@ var is_walking: bool = false
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
-	if Input.is_action_just_pressed("Player jump") and is_on_floor():
-		velocity.y = jump_velocity
-		
+	
 	var direction = Input.get_axis("Player left", "Player right")
 	if direction:
 		velocity.x = direction * speed

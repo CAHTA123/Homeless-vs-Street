@@ -9,12 +9,12 @@ enum Type {
 	tinCan,
 	cheesee
 }
+
 @export var item_name: String
 @export var type: Type
 @export var texture: Texture2D
 
 func get_type() -> Type:
-	print("type - ItemFromResource gds")
 	return type
 
 func get_item_name() -> String:

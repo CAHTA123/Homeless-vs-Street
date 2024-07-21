@@ -1,16 +1,22 @@
-extends Area2D
+#extends InteractArea
+extends InteractArea
 
 class_name DialogueInteractableArea
 
-@export_group("Dialogues")
+@export var self_character_type: TaskFromResource.CharacterType
 
-@export var self_all_dialogues: Array[DialogueResource]
+@export_group("Dialogues")
+@export var self_all_dialogues: Array [DialogueResource] = [
+	preload("res://Resources/Dialogues/Greeting.dialogue"),
+	preload("res://Resources/Dialogues/StartSearchExit.dialogue")]
 @export var current_dialogue: int
 
 func interact():
-	start_dialogue()
+	if !GlobalDialogueState.is_talking:
+		start_dialogue()
 
 func start_dialogue():
+	GlobalDialogueState.dialogue_starter = self
 	DialogueManager.show_dialogue_balloon(get_current_dialogue())
 
 #region Сеттеры и Геттеры

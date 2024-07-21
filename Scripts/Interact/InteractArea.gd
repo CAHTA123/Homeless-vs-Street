@@ -13,7 +13,7 @@ var player: Player:
 @export var interact_button := KEY_E
 
 func _ready():
-	set_process_input(false)
+	player = null
 	body_entered.connect(object_entered)
 	body_exited.connect(object_exited)
 

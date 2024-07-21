@@ -13,7 +13,6 @@ func erase_text():
 	text = ""
 
 func write_new_task():
-	print("1")
 	var task: TaskFromResource = GlobalDialogueState.get_current_task()
 	if task.task_type == TaskFromResource.TaskType.Bring:
 		var action: String = TaskFromResource.TaskType.find_key(task.task_type)

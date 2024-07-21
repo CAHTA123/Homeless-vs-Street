@@ -1,24 +1,30 @@
 ~ start
 
-Vice: Hey there!
-Me: ...
-Vice: How did you manage to survive?
-Me: ...
-Vice: Alright, it seems like you don't know anything...
-Vice: You look like a rat. You could use a drink.
-Me: ...
-Vice: Well, suit yourself. But first, bring me that can over there, and then we'll talk.
+if !GlobalDialogueState.is_complete and GlobalDialogueState.current_task == null:
+	set GlobalDialogueState.is_talking = true
+	Vice: Hey there!
+	Me: ...
+	Vice: How did you manage to survive?
+	Me: ...
+	Vice: Alright, it seems like you don't know anything...
+	Vice: You look like a rat. You could use a drink.
+	Me: ...
+	Vice: Well, suit yourself. But first, bring me that can over there, and then we'll talk.
+	set GlobalDialogueState.current_task = GlobalDialogueState.all_tasks[0]
+	
+elif GlobalDialogueState.is_complete:
+	set GlobalDialogueState.is_talking = true
+	Vice: Hold on a minute.
+	Vice: Drinks from the bottle.
+	Vice: Blergh.
+	Vice: While you were sleeping, our town was overrun by zombies. They ate all the people and mistook us for them.
+	Vice: Sounds like a joke, right?
+	Me: ...?
+	Vice: I think so too. But at least we're still alive.
+	Vice: By the way, since you've got nothing else to do, can you help me?
+	Me: ...
+	Vice: Deal. You need to find my friend, Sid.
+	Vice: He lives nearby. I'm not sure if he's still alive, but try to bring him back.
 
-Vice: Hold on a minute.
-Vice: Drinks from the bottle.
-Vice: Blergh.
-Vice: While you were sleeping, our town was overrun by zombies. They ate all the people and mistook us for them.
-Vice: Sounds like a joke, right?
-Me: ...?
-Vice: I think so too. But at least we're still alive.
-Vice: By the way, since you've got nothing else to do, can you help me?
-Me: ...
-Vice: Deal. You need to find my friend, Sid.
-Vice: He lives nearby. I'm not sure if he's still alive, but try to bring him back.
-
+set GlobalDialogueState.is_talking = false
 => END

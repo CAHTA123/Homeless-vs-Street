@@ -19,10 +19,10 @@ enum CharacterType {Null, Vice, Sid, Trader}
 @export var needed: CharacterType
 @export var recipient: CharacterType
 
-var is_complited: bool:
+var is_completed: bool:
 	set(value):
-		is_complited = value 
-		if is_complited:
+		is_completed = value 
+		if is_completed:
 			emit_signal("task_completed")
 
 func get_needed_item() -> ItemFromResource.Type:

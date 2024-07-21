@@ -14,7 +14,7 @@ bg_color = Color(0.934009, 0.37808, 0.569193, 1)
 
 [node name="GarbageContainer" type="Area2D" node_paths=PackedStringArray("search_bar", "garbage_saver")]
 script = ExtResource("1_q86nk")
-search_bar = NodePath("CanvasLayer/ProgressBar")
+search_bar = NodePath("ProgressBar")
 garbage_saver = NodePath("Garbage")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -25,9 +25,7 @@ script = ExtResource("2_ms4k1")
 container = NodePath("..")
 file_start_path = "user://garbage_data"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -54.0
 offset_top = -132.0
 offset_right = 54.0

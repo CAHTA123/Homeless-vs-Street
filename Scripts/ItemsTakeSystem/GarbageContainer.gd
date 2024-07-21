@@ -106,6 +106,7 @@ func interact():
 #region Поиск
 # Если объект выходит из ареи, то прекращаем поиск
 func object_exited(body):
+	super.object_exited(body)
 	is_searching = false
 
 # Высчитываем дистанцию
@@ -162,3 +163,4 @@ func set_drop_mode(new_mode: bool):
 func get_drop_mode() -> bool:
 	return is_dropped
 #endregion
+

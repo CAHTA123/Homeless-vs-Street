@@ -4,6 +4,9 @@ class_name TaskObserver
 
 var is_pressed: bool
 
+func _ready():
+	visible = false
+
 #region Ввод
 func _unhandled_key_input(event):
 	if event is InputEventKey:

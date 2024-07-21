@@ -9,6 +9,5 @@ all_items = ExtResource("1_b82sc")
 task_type = 0
 item = 1
 item_recipient = 1
-who = 0
-sender = 0
+needed = 0
 recipient = 0

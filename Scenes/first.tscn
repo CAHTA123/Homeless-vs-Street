@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://whgd20qamqe0"]
+[gd_scene load_steps=18 format=3 uid="uid://whgd20qamqe0"]
 
 [ext_resource type="PackedScene" uid="uid://csranlgab8j2g" path="res://Scenes/player.tscn" id="1_o35ji"]
 [ext_resource type="Script" path="res://Scripts/lvl.gd" id="1_sx4b4"]
@@ -8,7 +8,10 @@
 [ext_resource type="Resource" uid="uid://cub3v6r3djuq4" path="res://Resources/Items/Beer.tres" id="4_hjcm8"]
 [ext_resource type="Texture2D" uid="uid://ppr1ev5pw8e8" path="res://Sprites/BananaBoy assets/Items/Items.png" id="6_udapu"]
 [ext_resource type="PackedScene" uid="uid://bi63872o5b5o7" path="res://Scenes/InventoryScenes/PlayerInventory.tscn" id="9_16yvl"]
-[ext_resource type="PackedScene" uid="uid://vssq8e3bin2p" path="res://Scenes/Characters/Vice.tscn" id="9_q2qmy"]
+[ext_resource type="PackedScene" uid="uid://dm6rrv3c3jxaa" path="res://Scenes/Characters/Vice.tscn" id="9_q2qmy"]
+[ext_resource type="PackedScene" uid="uid://cxkn7wbsp06mx" path="res://Scenes/Characters/Sideney.tscn" id="9_vnmtd"]
+[ext_resource type="PackedScene" uid="uid://vssq8e3bin2p" path="res://Scenes/Characters/Trader.tscn" id="11_vq1ol"]
+[ext_resource type="PackedScene" uid="uid://b6bu0ovk4h7oh" path="res://Scenes/TaskObserver.tscn" id="12_13hs8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wa4yu"]
 load_path = "res://.godot/imported/Background.png-e6f3b35169be8dbe86a8f01b115a7a50.ctex"
@@ -84,13 +87,16 @@ texture = ExtResource("6_udapu")
 sources/0 = SubResource("TileSetAtlasSource_nax8p")
 sources/1 = SubResource("TileSetAtlasSource_vrope")
 
-[node name="First" type="Node2D"]
+[node name="First" type="Node2D" node_paths=PackedStringArray("inventory", "task_observer")]
 script = ExtResource("1_sx4b4")
+inventory = NodePath("Inventory")
+task_observer = NodePath("TaskObserver")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = SubResource("CompressedTexture2D_wa4yu")
+metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(588, 710)
@@ -101,22 +107,19 @@ position = Vector2(-23.4968, 1.26102)
 shape = SubResource("RectangleShape2D_rmcal")
 
 [node name="BG_1" parent="." instance=ExtResource("2_c084g")]
+visible = false
 offset = Vector2(640, 360)
 scale = Vector2(0.67, 0.67)
 transform = Transform2D(0.67, 0, 0, 0.67, 640, 360)
 
-[node name="GarbageContainer" parent="." instance=ExtResource("3_fyvw3")]
+[node name="GarbageContainer" parent="." node_paths=PackedStringArray("level", "inventory_node") instance=ExtResource("3_fyvw3")]
 position = Vector2(272, 521)
+level = NodePath("..")
+inventory_node = NodePath("../Inventory")
 garbage_item = ExtResource("4_hjcm8")
 
 [node name="CollisionShape2D" parent="GarbageContainer" index="0"]
 position = Vector2(-7.5, 23.375)
-
-[node name="ProgressBar" parent="GarbageContainer/CanvasLayer" index="0"]
-offset_left = 211.0
-offset_top = 469.0
-offset_right = 319.0
-offset_bottom = 497.0
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(3, 3)
@@ -125,19 +128,39 @@ format = 2
 layer_0/tile_data = PackedInt32Array(786433, 65536, 3, 786434, 131072, 3, 786435, 196608, 3, 786436, 262144, 3, 786437, 327680, 3, 786438, 393216, 3, 786439, 65536, 3, 786440, 131072, 3, 786441, 196608, 3, 786442, 262144, 3, 786443, 327680, 3, 786444, 393216, 3, 786445, 65536, 3, 786446, 131072, 3, 786447, 196608, 3, 786448, 262144, 3, 786449, 327680, 3, 786450, 393216, 3, 786451, 65536, 3, 786452, 131072, 3, 786453, 196608, 3, 786454, 262144, 3, 786455, 327680, 3, 786456, 393216, 3, 786457, 458752, 3, 851993, 458752, 4, 917529, 458752, 5, 917504, 0, 5, 917505, 65536, 5, 917506, 131072, 5, 917507, 196608, 5, 917508, 262144, 5, 917509, 327680, 5, 917510, 393216, 5, 786432, 0, 3, 851968, 0, 4, 851969, 65536, 4, 851970, 131072, 4, 851971, 196608, 4, 851972, 262144, 4, 851973, 327680, 4, 851974, 393216, 4, 851975, 65536, 4, 851976, 131072, 4, 851977, 196608, 4, 851978, 262144, 4, 851979, 327680, 4, 851980, 393216, 4, 851981, 65536, 4, 851982, 131072, 4, 851983, 196608, 4, 851984, 262144, 4, 851985, 327680, 4, 851986, 393216, 4, 851987, 65536, 4, 851988, 131072, 4, 851989, 196608, 4, 851990, 262144, 4, 851991, 327680, 4, 851992, 393216, 4, 917522, 65536, 5, 917523, 65536, 5, 917524, 131072, 5, 917525, 196608, 5, 917526, 262144, 5, 917527, 327680, 5, 917528, 393216, 5, 917517, 65536, 5, 917518, 131072, 5, 917519, 196608, 5, 917520, 262144, 5, 917521, 327680, 5, 917511, 65536, 5, 917512, 131072, 5, 917513, 196608, 5, 917514, 262144, 5, 917515, 327680, 5, 917516, 196608, 5, 720901, 393217, 4, 720906, 196609, 2, 720908, 1, 2, 655371, 1, 3)
 
 [node name="Player" parent="." instance=ExtResource("1_o35ji")]
+z_index = 3
 position = Vector2(155, 576)
 scale = Vector2(7.5, 7.5)
 speed = 200.0
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(6.93333, -28.8)
+
 [node name="Inventory" parent="." instance=ExtResource("9_16yvl")]
 player_inventory = Array[Resource("res://Scripts/InventorySystem/AbstractItem.gd")]([null, null, null, null, null])
 
-[node name="Vice" parent="." instance=ExtResource("9_q2qmy")]
-position = Vector2(501, 516)
+[node name="Sid" parent="." instance=ExtResource("9_vnmtd")]
+position = Vector2(1006, 471)
 scale = Vector2(7.5, 7.5)
 
-[node name="Collsiion" parent="Vice/InteractArea" index="0"]
-position = Vector2(1.13333, 0)
+[node name="Vice" parent="." instance=ExtResource("9_q2qmy")]
+position = Vector2(566, 516)
+scale = Vector2(7.5, 7.5)
+
+[node name="Trader" parent="." instance=ExtResource("11_vq1ol")]
+position = Vector2(1, 478)
+scale = Vector2(7.5, 7.5)
+
+[node name="CollisionShape2D" parent="Trader/DialogueInteractableArea" index="0"]
+position = Vector2(0, 3.03333)
+
+[node name="CharacterAnimation" parent="Trader" index="1"]
+position = Vector2(0, 0.133329)
+
+[node name="TaskObserver" parent="." instance=ExtResource("12_13hs8")]
+visible = false
+
+[connection signal="body_exited" from="GarbageContainer" to="GarbageContainer" method="_on_body_exited"]
 
 [editable path="GarbageContainer"]
-[editable path="Vice"]
+[editable path="Trader"]
