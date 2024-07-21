@@ -64,14 +64,22 @@ func check_task_complete():
 					var level_scene: LevelGame = get_tree().current_scene
 					inventory = level_scene.get_inventory_node()
 			for child in inventory.player_inventory:
-				if child:
-					if dialogue_starter.self_character_type == current_task.item_recipient:
-						current_task.is_completed = true
+				if child and child.type == current_task.item:
+					var slot_from_ui = inventory.slot_parent.get_child(inventory.player_inventory.find(child))
+					if slot_from_ui is InventorySlot:
+						if dialogue_starter.self_character_type == current_task.item_recipient:
+							slot_from_ui.set_item(null)
+							child = null
+							complete_task()
 
 		elif current_task.task_type == TaskFromResource.TaskType.Lead:
+			print("1")
 			if dialogue_starter.has_overlapping_areas():
 				for child in dialogue_starter.get_overlapping_areas():
 					if child is DialogueInteractableArea:
 						if child.self_character_type == current_task.needed:
-							current_task.is_completed = true
+							complete_task()
 	return false
+
+func complete_task():
+	current_task.is_completed = true

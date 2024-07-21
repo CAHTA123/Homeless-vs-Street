@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6bu0ovk4h7oh"]
+[gd_scene load_steps=5 format=3 uid="uid://b6bu0ovk4h7oh"]
 
 [ext_resource type="Texture2D" uid="uid://doe2kl284mrnj" path="res://Sprites/BananaBoy assets/Ui/TaskObserver/TaskObserverPanel.png" id="1_3hlye"]
 [ext_resource type="Script" path="res://Scripts/TaskSystem/TaskObserver.gd" id="1_6ml61"]
-[ext_resource type="PackedScene" uid="uid://bi63872o5b5o7" path="res://Scenes/InventoryScenes/PlayerInventory.tscn" id="2_collm"]
 [ext_resource type="LabelSettings" uid="uid://dq7ua7kranyud" path="res://Resources/Themes/UiFonts.tres" id="3_e0xjx"]
 [ext_resource type="Script" path="res://Scripts/TaskSystem/TaskQuintessence.gd" id="4_2br18"]
 
@@ -76,5 +75,3 @@ layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Delete this Game"
 fit_content = true
-
-[node name="Inventory" parent="." instance=ExtResource("2_collm")]
