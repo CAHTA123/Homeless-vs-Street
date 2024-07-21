@@ -10,5 +10,5 @@ region = Rect2(96, 0, 32, 32)
 [resource]
 script = ExtResource("1_073li")
 item_name = "Cheese"
-type = 3
+type = 4
 texture = SubResource("AtlasTexture_2mtv6")

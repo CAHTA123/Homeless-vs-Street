@@ -2,20 +2,36 @@ extends Resource
 
 class_name TaskFromResource
 
-@export var task_name: String
+enum TaskType {Bring, Lead}
 
-@export var task_essence: String
+enum CharacterType {Null, Vice, Sid, Trader}
+
+@export var all_items = preload("res://Resources/Inventories/AllItems.tres")
+
+@export_category("Task settings")
+@export var task_type: TaskType
+
+@export_group("Item")
+@export var item: ItemFromResource.Type
+@export var item_recipient: CharacterType
+
+@export_group("Lead")
+@export var needed: CharacterType
+@export var recipient: CharacterType
 
 var is_complited: bool:
 	set(value):
 		is_complited = value 
 		if is_complited:
-			emit_signal("task_complited")
+			emit_signal("task_completed")
 
-func get_task_name() -> String:
-	return task_name
+func get_needed_item() -> ItemFromResource.Type:
+	return item
 
-func get_task_essence() -> String:
-	return task_essence
+func get_item_recipient() -> CharacterType:
+	return item_recipient
 
-signal task_complited
+func get_task_type() -> TaskType:
+	return task_type
+
+signal task_completed

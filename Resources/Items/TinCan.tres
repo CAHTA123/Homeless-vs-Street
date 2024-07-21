@@ -10,5 +10,5 @@ region = Rect2(0, 0, 32, 32)
 [resource]
 script = ExtResource("1_7vd7e")
 item_name = "Tin can"
-type = 2
+type = 3
 texture = SubResource("AtlasTexture_djtm2")

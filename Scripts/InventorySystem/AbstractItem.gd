@@ -3,10 +3,11 @@ extends Resource
 class_name ItemFromResource
 
 enum Type {
-	Weapon,
-	Beer,
-	Trash,
-	Eat
+	knife,
+	beer,
+	hat,
+	tinCan,
+	cheesee
 }
 @export var item_name: String
 @export var type: Type

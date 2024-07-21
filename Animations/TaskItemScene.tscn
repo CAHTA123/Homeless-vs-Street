@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dw14d0gekoivj"]
 
-[ext_resource type="Script" path="res://Scripts/TaskItemAnimation.gd" id="1_qdtrm"]
-[ext_resource type="Texture2D" uid="uid://bdr3d3fomax8a" path="res://Sprites/BananaBoy assets/Ui/Task_item selected/Item.png" id="2_o18f3"]
+[ext_resource type="Script" path="res://Scripts/TaskItemAnimation.gd" id="1_k3jy7"]
+[ext_resource type="Texture2D" uid="uid://bdr3d3fomax8a" path="res://Sprites/BananaBoy assets/Ui/Task_item selected/Item.png" id="2_2fvkp"]
 
 [sub_resource type="Animation" id="Animation_vsdof"]
 length = 0.001
@@ -71,7 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_qdtrm")
+script = ExtResource("1_k3jy7")
 anim = NodePath("AnimationPlayer")
 slot = NodePath("CanvasLayer/Slot")
 texture_viewer = NodePath("CanvasLayer/Slot/TextureViewer")
@@ -91,7 +91,7 @@ offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(75, 75)
-texture = ExtResource("2_o18f3")
+texture = ExtResource("2_2fvkp")
 
 [node name="TextureViewer" type="TextureRect" parent="CanvasLayer/Slot"]
 layout_mode = 1

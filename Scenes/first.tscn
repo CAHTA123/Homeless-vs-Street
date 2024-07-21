@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://whgd20qamqe0"]
+[gd_scene load_steps=15 format=3 uid="uid://whgd20qamqe0"]
 
 [ext_resource type="PackedScene" uid="uid://csranlgab8j2g" path="res://Scenes/player.tscn" id="1_o35ji"]
 [ext_resource type="Script" path="res://Scripts/lvl.gd" id="1_sx4b4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://cub3v6r3djuq4" path="res://Resources/Items/Beer.tres" id="4_hjcm8"]
 [ext_resource type="Texture2D" uid="uid://ppr1ev5pw8e8" path="res://Sprites/BananaBoy assets/Items/Items.png" id="6_udapu"]
 [ext_resource type="PackedScene" uid="uid://bi63872o5b5o7" path="res://Scenes/InventoryScenes/PlayerInventory.tscn" id="9_16yvl"]
+[ext_resource type="PackedScene" uid="uid://vssq8e3bin2p" path="res://Scenes/Characters/Vice.tscn" id="9_q2qmy"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wa4yu"]
 load_path = "res://.godot/imported/Background.png-e6f3b35169be8dbe86a8f01b115a7a50.ctex"
@@ -131,4 +132,12 @@ speed = 200.0
 [node name="Inventory" parent="." instance=ExtResource("9_16yvl")]
 player_inventory = Array[Resource("res://Scripts/InventorySystem/AbstractItem.gd")]([null, null, null, null, null])
 
+[node name="Vice" parent="." instance=ExtResource("9_q2qmy")]
+position = Vector2(501, 516)
+scale = Vector2(7.5, 7.5)
+
+[node name="Collsiion" parent="Vice/InteractArea" index="0"]
+position = Vector2(1.13333, 0)
+
 [editable path="GarbageContainer"]
+[editable path="Vice"]

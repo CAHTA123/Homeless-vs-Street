@@ -1,0 +1,62 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://d4h17wq1ompcc"]
+
+[ext_resource type="Texture2D" uid="uid://b1tmott8fmed5" path="res://Sprites/BananaBoy assets/Characters/Sideney/Sideney preview.png" id="1_4sm27"]
+[ext_resource type="Texture2D" uid="uid://bt83dhtg6fxdf" path="res://Sprites/BananaBoy assets/Characters/Sideney/Sideney walk animation.png" id="2_qgjdk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7v3k"]
+atlas = ExtResource("2_qgjdk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuyd7"]
+atlas = ExtResource("2_qgjdk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epa7h"]
+atlas = ExtResource("2_qgjdk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpwun"]
+atlas = ExtResource("2_qgjdk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jiel"]
+atlas = ExtResource("2_qgjdk")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3krdk"]
+atlas = ExtResource("2_qgjdk")
+region = Rect2(160, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4sm27")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7v3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuyd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epa7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpwun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jiel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3krdk")
+}],
+"loop": true,
+"name": &"WALK",
+"speed": 10.0
+}]

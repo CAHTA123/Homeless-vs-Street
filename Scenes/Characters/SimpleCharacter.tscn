@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://o6jyanfc3vds"]
+
+[ext_resource type="Script" path="res://Scripts/Interact/DialogueInteractableArea.gd" id="1_k5ul8"]
+[ext_resource type="Script" path="res://Scripts/Characters/Anim.gd" id="4_xpg5c"]
+
+[node name="Character" type="CharacterBody2D"]
+
+[node name="InteractArea" type="Area2D" parent="."]
+script = ExtResource("1_k5ul8")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+animation = &"WALK"
+autoplay = "IDLE"
+script = ExtResource("4_xpg5c")

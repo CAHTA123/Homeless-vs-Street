@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://dm6rrv3c3jxaa"]
+
+[ext_resource type="PackedScene" uid="uid://o6jyanfc3vds" path="res://Scenes/Characters/SimpleCharacter.tscn" id="1_3jq8c"]
+[ext_resource type="Texture2D" uid="uid://b0svxgnnweqyo" path="res://Sprites/BananaBoy assets/Characters/Trader/Trader preview.png" id="2_6fu8f"]
+[ext_resource type="Texture2D" uid="uid://k8ve8ut6uyen" path="res://Sprites/BananaBoy assets/Characters/Trader/Trader walk animation.png" id="3_v84mb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hqe7"]
+atlas = ExtResource("2_6fu8f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37w0v"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3khg"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kvfj"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky33u"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk7nx"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3be2"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lirw1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hqe7")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37w0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3khg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kvfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky33u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk7nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3be2")
+}],
+"loop": true,
+"name": &"WALK",
+"speed": 10.0
+}]
+
+[node name="Character" instance=ExtResource("1_3jq8c")]
+
+[node name="Anim" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_lirw1")
+autoplay = ""
+frame_progress = 0.893753

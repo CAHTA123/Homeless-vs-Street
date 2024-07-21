@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxkn7wbsp06mx"]
+
+[ext_resource type="PackedScene" uid="uid://o6jyanfc3vds" path="res://Scenes/Characters/SimpleCharacter.tscn" id="1_6poox"]
+[ext_resource type="SpriteFrames" uid="uid://d4h17wq1ompcc" path="res://Resources/CharacterAnimFromResource.tres" id="2_pp4ma"]
+
+[node name="Character" instance=ExtResource("1_6poox")]
+
+[node name="Anim" parent="." index="1"]
+sprite_frames = ExtResource("2_pp4ma")
+animation = &"IDLE"
+frame_progress = 0.653377

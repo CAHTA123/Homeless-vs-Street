@@ -8,7 +8,7 @@ class_name PlayerInventoryPlaceholder
 @export var slot_parent: Control
 
 @export_group("Item added")
-@export var item_added_scene: PackedScene = preload("res://Scenes/Animations/TaskItemScene.tscn")
+@export var item_added_scene: PackedScene = preload("res://Animations/TaskItemScene.tscn")
 #endregion
 
 signal item_selected
