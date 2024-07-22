@@ -7,10 +7,7 @@ class_name Player
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_walking: bool = false
 
-func _physics_process(delta):
-	#if not is_on_floor():
-		#velocity.y += gravity * delta
-	
+func _physics_process(delta):	
 	var direction = Input.get_axis("Player left", "Player right")
 	if direction:
 		velocity.x = direction * speed

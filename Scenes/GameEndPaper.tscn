@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=3 uid="uid://tb0q381it0iq"]
+
+[ext_resource type="Script" path="res://Scripts/Interact/DialogueInteractableArea.gd" id="1_a5wvd"]
+[ext_resource type="Resource" uid="uid://bjh8ppfbs5x02" path="res://Resources/Dialogues/EndGame.dialogue" id="2_3aml8"]
+[ext_resource type="Texture2D" uid="uid://o7wi6u6ifnly" path="res://Sprites/BananaBoy assets/Particles/SquareParticle.png" id="3_l4rfs"]
+[ext_resource type="Texture2D" uid="uid://bonhdkugo2k1l" path="res://Sprites/BananaBoy assets/PaperEnd/PaperEnd.png" id="4_hwd32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1f3l"]
+size = Vector2(974, 1446)
+
+[sub_resource type="Gradient" id="Gradient_r6bwo"]
+offsets = PackedFloat32Array(0, 0.992032)
+colors = PackedColorArray(0.290196, 0.215686, 0.521569, 1, 0.227451, 0.545098, 0.811765, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6tjuj"]
+gradient = SubResource("Gradient_r6bwo")
+
+[sub_resource type="Curve" id="Curve_kixt4"]
+_data = [Vector2(0, 0.238653), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nxfpa"]
+curve = SubResource("Curve_kixt4")
+
+[sub_resource type="Curve" id="Curve_0mavq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.147766, 0.213491), 0.0, 0.0, 0, 0, Vector2(0.508591, 0.638387), 0.0, 0.0, 0, 0, Vector2(0.958763, 0.331015), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_apw15"]
+curve = SubResource("Curve_0mavq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xa5sn"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(100, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, -500, 0)
+linear_accel_min = 18.3
+linear_accel_max = 18.3
+radial_accel_max = 58.67
+tangential_accel_max = 64.05
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_nxfpa")
+color_ramp = SubResource("GradientTexture1D_6tjuj")
+hue_variation_min = -0.12
+anim_speed_min = 7.2
+anim_speed_max = 7.2
+turbulence_enabled = true
+turbulence_noise_strength = 9.93
+turbulence_noise_speed_random = 3.42
+turbulence_influence_min = 0.993
+turbulence_influence_max = 0.993
+turbulence_initial_displacement_min = -84.5
+turbulence_initial_displacement_max = 75.5
+turbulence_influence_over_life = SubResource("CurveTexture_apw15")
+
+[sub_resource type="Animation" id="Animation_2q3uq"]
+resource_name = "animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 5), Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dndgp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qxvl6"]
+_data = {
+"RESET": SubResource("Animation_dndgp"),
+"animation": SubResource("Animation_2q3uq")
+}
+
+[node name="GameEndPaper" type="Area2D"]
+script = ExtResource("1_a5wvd")
+self_all_dialogues = Array[Resource("res://addons/dialogue_manager/dialogue_resource.gd")]([ExtResource("2_3aml8")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k1f3l")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 512
+process_material = SubResource("ParticleProcessMaterial_xa5sn")
+texture = ExtResource("3_l4rfs")
+
+[node name="PaperEnd" type="Sprite2D" parent="."]
+modulate = Color(1, 0.988235, 1, 1)
+self_modulate = Color(1, 1, 0.866667, 1)
+scale = Vector2(3.625, 3.625)
+texture = ExtResource("4_hwd32")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PaperEnd"]
+libraries = {
+"": SubResource("AnimationLibrary_qxvl6")
+}
+autoplay = "animation"

@@ -51,3 +51,4 @@ func set_item_empty_slot(new_item: ItemFromResource):
 			item_added_scene_instance.set_item(new_item)
 		# Добавляем сцену
 			add_child(item_added_scene_instance)
+
