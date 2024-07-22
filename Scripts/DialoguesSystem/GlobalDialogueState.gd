@@ -12,6 +12,7 @@ extends Node
 	preload("res://Resources/Tasks/BeerToVice.tres"),
 	preload("res://Resources/Tasks/SidLead.tres"),
 	preload("res://Resources/Tasks/BeerToSid.tres"),
+	preload("res://Resources/Tasks/CheeseToSid.tres"),
 	preload("res://Resources/Tasks/TraderCan.tres")
 	]
 
@@ -112,8 +113,12 @@ func check_task():
 						inventory.delete_item(inventory.player_inventory.find(relevents_item[0])) 
 		
 		elif current_task.task_type == TaskFromResource.TaskType.Lead:
-			print("1")
-
+			if started_dialogue_character.self_character_type == current_task.recipient:
+				if started_dialogue_character.get_overlapping_areas():
+					for child in started_dialogue_character.get_overlapping_areas():
+						if child is DialogueInteractableArea:
+							if child.self_character_type == current_task.needed:
+								complete_task()
 # Выполнение задания
 func complete_task():
 	if current_task != all_tasks[next_task_index]:

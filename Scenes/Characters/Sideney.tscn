@@ -19,10 +19,11 @@ self_character_type = 2
 self_all_dialogues = Array[Resource("res://addons/dialogue_manager/dialogue_resource.gd")]([ExtResource("2_5cu37")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteractableArea"]
-position = Vector2(0, 2.5)
+position = Vector2(0, -11.5)
 shape = SubResource("RectangleShape2D_sc0lt")
 
 [node name="CharacterAnimation" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("character")]
+position = Vector2(0, -14)
 sprite_frames = ExtResource("2_pp4ma")
 animation = &"IDLE"
 frame_progress = 0.916088

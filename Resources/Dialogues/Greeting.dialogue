@@ -15,6 +15,7 @@ if !GlobalDialogueState.task_need:
 elif GlobalDialogueState.task_need:
 	do GlobalDialogueState.check_task()
 	if !GlobalDialogueState.task_need:
+		do GlobalDialogueState.started_dialogue_character.up_dialogue_index()
 		Vice: Hold on a minute.
 		Vice: Drinks from the bottle.
 		Vice: Blergh.
@@ -26,6 +27,7 @@ elif GlobalDialogueState.task_need:
 		Me: ...
 		Vice: Deal. You need to find my friend, Sid.
 		Vice: He lives nearby. I'm not sure if he's still alive, but try to bring him back.
+		
 		do GlobalDialogueState.set_task()
 
 => END
