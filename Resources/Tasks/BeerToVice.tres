@@ -7,7 +7,7 @@
 script = ExtResource("1_mnavl")
 all_items = ExtResource("1_b82sc")
 task_type = 0
-item = 1
+item_type = 1
 item_recipient = 1
 needed = 0
 recipient = 0

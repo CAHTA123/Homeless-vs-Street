@@ -1,21 +1,19 @@
-~ start
+~ SidFound
 
-do GlobalDialogueState.check_task_complete()
-if GlobalDialogueState.current_task != GlobalDialogueState.all_tasks[2]:
-	Sid: Hi, who are you?
-
-	Sid: Silent, huh? Alright, go ahead, say what you need or get lost.
-
-	Sid: Come on, I'm waiting.
-	set GlobalDialogueState.current_task = GlobalDialogueState.all_tasks[2]
-
-elif GlobalDialogueState.is_complete and GlobalDialogueState.current_task == null:
-
-	Sid: Okay, I got you, I'll follow you. Get a bottle from over there, yeah, that one.
-
-	Sid: I thought I was gonna die... Wait a second, let me take a sip...
-
-	Sid: Ah-a-a-ah, alright, let's go.
-	set GlobalDialogueState.current_task = GlobalDialogueState.all_tasks[1]
-
+if GlobalDialogueState.current_task.task_type == TaskFromResource.TaskType.Lead:
+	if GlobalDialogueState.current_task.needed == TaskFromResource.CharacterType.Sid:
+		if GlobalDialogueState.current_task == GlobalDialogueState.all_tasks[GlobalDialogueState.current_task_index]:
+			Sid: Hi, who are you?
+			Sid: Silent, huh? Alright, go ahead, say what you need or get lost.
+			Sid: Come on, I'm waiting.
+			Sid: Okay, I got you, I'll follow you. Get a bottle from over there, yeah, that one.
+			do GlobalDialogueState.set_task(GlobalDialogueState.next_task_index)
+			=> END
+else:
+	do GlobalDialogueState.check_task()
+	if !GlobalDialogueState.task_need:
+		Sid: I thought I was gonna die... Wait a second, let me take a sip...
+		Sid: Ah-a-a-ah, alright, let's go.
+		do GlobalDialogueState.set_task(GlobalDialogueState.current_task_index)
+		=> END
 => END

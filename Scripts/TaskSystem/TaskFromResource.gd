@@ -12,7 +12,7 @@ enum CharacterType {Null, Vice, Sid, Trader}
 @export var task_type: TaskType
 
 @export_group("Item")
-@export var item: ItemFromResource.Type
+@export var item_type: ItemFromResource.Type
 @export var item_recipient: CharacterType
 
 @export_group("Lead")
@@ -27,7 +27,7 @@ var is_complete: bool:
 			emit_signal("task_completed")
 
 func get_needed_item() -> ItemFromResource.Type:
-	return item
+	return item_type
 
 func get_item_recipient() -> CharacterType:
 	return item_recipient

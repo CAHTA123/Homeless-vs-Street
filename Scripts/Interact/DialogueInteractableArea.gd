@@ -10,12 +10,11 @@ class_name DialogueInteractableArea
 @export var current_dialogue: int
 
 func interact():
-	if !GlobalDialogueState.is_talking:
-		start_dialogue()
+	GlobalDialogueState.started_dialogue_character = self
+	GlobalDialogueState.start_dialogue(get_current_dialogue())
 
-func start_dialogue():
-	GlobalDialogueState.dialogue_starter = self
-	DialogueManager.show_dialogue_balloon(get_current_dialogue())
+func up_dialogue_index(idx: int = 1):
+	current_dialogue += idx
 
 #region Сеттеры и Геттеры
 

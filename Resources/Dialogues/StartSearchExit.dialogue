@@ -1,21 +1,13 @@
 ~ StartSearchExit
 
-do GlobalDialogueState.check_task_complete()
+Vice: Oh, look who we have here, Sid!
+Sid: Hey there, why'd you bring him here?
+Vice: While you two drunks were snoozing, zombies devoured the townsfolk and left us.
+Sid: Did I really need to get up for this?
+Vice: Do you want us to be eaten next? No? Then let's go scavenge the town, both of you!
 
-if GlobalDialogueState.is_complete and GlobalDialogueState.current_task == GlobalDialogueState.all_tasks[1]: 
-	Vice: Oh, look who we have here, Sid!
+[wait =  3]
 
-	Sid: Hey there, why'd you bring him here?
-
-	Vice: While you two drunks were snoozing, zombies devoured the townsfolk and left us.
-
-	Sid: Did I really need to get up for this?
-
-	Vice: Do you want us to be eaten next? No? Then let's go scavenge the town, both of you!
-
-	[wait =  3]
-	Sid: Hey, let's do this: so she doesn't get even angrier, you go find a way out of town and grab me some beer, be a pal, while I go back to sleep.
-	set GlobalDialogueState.current_task = GlobalDialogueState.all_tasks[2]
-	set GlobalDialogueState.dialogue_starter.current_dialogue += 1
+Sid: Hey, let's do this: so she doesn't get even angrier, you go find a way out of town and grab me some beer, be a pal, while I go back to sleep.
 
 => END
