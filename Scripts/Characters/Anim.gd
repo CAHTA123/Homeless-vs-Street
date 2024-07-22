@@ -13,10 +13,10 @@ func _physics_process(delta):
 			play("WALK")
 			
 			if direction > 0:
-				flip_h = true
-			
-			elif direction < 0:
 				flip_h = false
+				
+			elif direction < 0:
+				flip_h = true
 			
 			return
 		

@@ -15,5 +15,6 @@ else:
 		Sid: I thought I was gonna die... Wait a second, let me take a sip...
 		Sid: Ah-a-a-ah, alright, let's go.
 		do GlobalDialogueState.set_task(GlobalDialogueState.current_task_index)
+		do GlobalDialogueState.started_dialogue_character.set_process(true)
 		=> END
 => END
