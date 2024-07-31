@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcxajg8m7ti88"]
+
+[ext_resource type="PackedScene" uid="uid://bo1fp4iq0k3eg" path="res://Scenes/lvl.tscn" id="1_e4lp3"]
+[ext_resource type="AudioStream" uid="uid://c13fw1fbskrmd" path="res://Audio/Violet (Mountaineer) (3).mp3" id="2_a0qlo"]
+
+[node name="lvl-3" instance=ExtResource("1_e4lp3")]
+
+[node name="Audio" parent="." index="2"]
+stream = ExtResource("2_a0qlo")

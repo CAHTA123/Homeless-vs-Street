@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bf20wnbwdysmw"]
+
+[ext_resource type="PackedScene" uid="uid://bo1fp4iq0k3eg" path="res://Scenes/lvl.tscn" id="1_e2qym"]
+[ext_resource type="Texture2D" uid="uid://cgw6ys6xftjsw" path="res://Sprites/BananaBoy assets/Backgrounds/Background.png" id="2_qbnxq"]
+[ext_resource type="Texture2D" uid="uid://c373xpuh3hqc6" path="res://Sprites/BananaBoy assets/Backgrounds/1 Parallax/Back Houses.png" id="3_fcott"]
+[ext_resource type="AudioStream" uid="uid://b1qi3rconjwyf" path="res://Audio/Danijel Zambo - Stardust(1).mp3" id="4_d2jdv"]
+[ext_resource type="Texture2D" uid="uid://ben8hrsx875vj" path="res://Sprites/BananaBoy assets/Backgrounds/1 Parallax/Front Houses.png" id="4_r84lq"]
+
+[node name="lvl-1" instance=ExtResource("1_e2qym")]
+
+[node name="BG" parent="." index="0"]
+offset = Vector2(640, 360)
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 640, 360)
+
+[node name="TextureRect" type="TextureRect" parent="BG/ParallaxLayer" index="0"]
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+texture = ExtResource("2_qbnxq")
+
+[node name="TextureRect" type="TextureRect" parent="BG/ParallaxLayer2" index="0"]
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+texture = ExtResource("3_fcott")
+
+[node name="TextureRect" type="TextureRect" parent="BG/ParallaxLayer3" index="0"]
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+texture = ExtResource("4_r84lq")
+
+[node name="Audio" parent="." index="2"]
+stream = ExtResource("4_d2jdv")

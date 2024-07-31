@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbstractInventory" load_steps=7 format=3 uid="uid://canafybcy3btf"]
+
+[ext_resource type="Script" path="res://Scripts/InventorySystem/AbstractInventory.gd" id="1_nej6s"]
+[ext_resource type="Resource" uid="uid://cub3v6r3djuq4" path="res://Resources/Items/Beer.tres" id="1_xy1lb"]
+[ext_resource type="Resource" uid="uid://c7x5ahbp5fo0a" path="res://Resources/Items/Cheese.tres" id="2_c8lka"]
+[ext_resource type="Resource" uid="uid://b0p6qvgkc38b" path="res://Resources/Items/Hat.tres" id="3_hesym"]
+[ext_resource type="Resource" uid="uid://d1gwrg205sulr" path="res://Resources/Items/Knife.tres" id="4_ku5do"]
+[ext_resource type="Resource" uid="uid://3uf7fmkkjq1s" path="res://Resources/Items/TinCan.tres" id="5_2h00d"]
+
+[resource]
+script = ExtResource("1_nej6s")
+items_array = Array[Resource("res://Scripts/InventorySystem/AbstractItem.gd")]([ExtResource("1_xy1lb"), ExtResource("2_c8lka"), ExtResource("3_hesym"), ExtResource("4_ku5do"), ExtResource("5_2h00d")])

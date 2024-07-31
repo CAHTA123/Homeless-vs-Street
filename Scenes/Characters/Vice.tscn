@@ -1,0 +1,129 @@
+[gd_scene load_steps=22 format=3 uid="uid://dm6rrv3c3jxaa"]
+
+[ext_resource type="PackedScene" uid="uid://o6jyanfc3vds" path="res://Scenes/Characters/SimpleCharacter.tscn" id="1_04iew"]
+[ext_resource type="Script" path="res://Scripts/Interact/DialogueInteractableArea.gd" id="2_autuy"]
+[ext_resource type="Texture2D" uid="uid://cdewnul7k4jfw" path="res://Sprites/BananaBoy assets/Characters/Vice/Vice walk animation.png" id="3_71idh"]
+[ext_resource type="Resource" uid="uid://dybv2utdocvrg" path="res://Resources/Dialogues/Greeting.dialogue" id="3_lkt0b"]
+[ext_resource type="Texture2D" uid="uid://bxqp6r4v8iuw0" path="res://Sprites/BananaBoy assets/Characters/Vice/Vice stay animation.png" id="3_x08a1"]
+[ext_resource type="Resource" uid="uid://c42ws2j0ovelk" path="res://Resources/Dialogues/StartSearchExit.dialogue" id="3_yge8u"]
+[ext_resource type="Script" path="res://Scripts/Characters/Anim.gd" id="5_2lw3y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6auj"]
+size = Vector2(25.0667, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb7hu"]
+atlas = ExtResource("3_x08a1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se6xb"]
+atlas = ExtResource("3_x08a1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkysi"]
+atlas = ExtResource("3_x08a1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn5g7"]
+atlas = ExtResource("3_x08a1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3bao"]
+atlas = ExtResource("3_x08a1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v382p"]
+atlas = ExtResource("3_x08a1")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3t6u"]
+atlas = ExtResource("3_71idh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yv2s"]
+atlas = ExtResource("3_71idh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1uk6"]
+atlas = ExtResource("3_71idh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgtdp"]
+atlas = ExtResource("3_71idh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_580tq"]
+atlas = ExtResource("3_71idh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxji2"]
+atlas = ExtResource("3_71idh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dl1rl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb7hu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se6xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkysi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn5g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3bao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v382p")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3t6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yv2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1uk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgtdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_580tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxji2")
+}],
+"loop": true,
+"name": &"WALK",
+"speed": 10.0
+}]
+
+[node name="Vice" instance=ExtResource("1_04iew")]
+
+[node name="DialogueInteractableArea" type="Area2D" parent="." index="0"]
+script = ExtResource("2_autuy")
+self_character_type = 1
+self_all_dialogues = Array[Resource("res://addons/dialogue_manager/dialogue_resource.gd")]([ExtResource("3_lkt0b"), ExtResource("3_yge8u")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteractableArea" index="0"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_v6auj")
+
+[node name="CharacterAnimation" type="AnimatedSprite2D" parent="." index="1" node_paths=PackedStringArray("character")]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_dl1rl")
+animation = &"IDLE"
+frame = 2
+frame_progress = 0.77051
+script = ExtResource("5_2lw3y")
+character = NodePath("..")

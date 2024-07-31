@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://c42ws2j0ovelk"
+path="res://.godot/imported/StartSearchExit.dialogue-ac8a44a85c7bea5500e240e793ab4cc1.tres"
+
+[deps]
+
+source_file="res://Resources/Dialogues/StartSearchExit.dialogue"
+dest_files=["res://.godot/imported/StartSearchExit.dialogue-ac8a44a85c7bea5500e240e793ab4cc1.tres"]
+
+[params]
+
+defaults=true

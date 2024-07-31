@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb31nxb2w6ben"]
+
+[ext_resource type="Texture2D" uid="uid://doe2kl284mrnj" path="res://Sprites/BananaBoy assets/Ui/TaskObserver/TaskObserverPanel.png" id="1_3hlye"]
+[ext_resource type="Script" path="res://Scripts/TaskSystem/TaskObserver.gd" id="1_6ml61"]
+[ext_resource type="LabelSettings" uid="uid://dq7ua7kranyud" path="res://Resources/Themes/UiFonts.tres" id="3_e0xjx"]
+[ext_resource type="Script" path="res://Scripts/TaskSystem/TaskQuintessence.gd" id="4_2br18"]
+
+[node name="TaskObserver" type="CanvasLayer"]
+script = ExtResource("1_6ml61")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TaskPanel" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -236.0
+offset_right = 291.0
+offset_bottom = 187.0
+grow_vertical = 2
+texture = ExtResource("1_3hlye")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/TaskPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="CurrentTaskContainer" type="VBoxContainer" parent="Control/TaskPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="CurrentTaskHeading" type="Label" parent="Control/TaskPanel/MarginContainer/CurrentTaskContainer"]
+layout_mode = 2
+text = "Task:"
+label_settings = ExtResource("3_e0xjx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TaskQuintessence" type="RichTextLabel" parent="Control/TaskPanel/MarginContainer/CurrentTaskContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+fit_content = true
+tab_size = 24
+script = ExtResource("4_2br18")
+
+[node name="OtherTasksContainer" type="VBoxContainer" parent="Control/TaskPanel/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="OtherTaskHeading" type="Label" parent="Control/TaskPanel/MarginContainer/OtherTasksContainer"]
+layout_mode = 2
+text = "Other tasks:"
+label_settings = ExtResource("3_e0xjx")
+horizontal_alignment = 1
+
+[node name="TaskQuintessence" type="RichTextLabel" parent="Control/TaskPanel/MarginContainer/OtherTasksContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Delete this Game"
+fit_content = true

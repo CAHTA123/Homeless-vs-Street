@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxkn7wbsp06mx"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Character_Movement.gd" id="1_su287"]
+[ext_resource type="Resource" uid="uid://qbfc46qi5gfw" path="res://Resources/Dialogues/SideneyFound.dialogue" id="2_5cu37"]
+[ext_resource type="Script" path="res://Scripts/Characters/FollowArea.gd" id="2_5hpqh"]
+[ext_resource type="Script" path="res://Scripts/Characters/Anim.gd" id="2_hdbrj"]
+[ext_resource type="SpriteFrames" uid="uid://d4h17wq1ompcc" path="res://Resources/CharacterAnimFromResource.tres" id="2_pp4ma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc0lt"]
+size = Vector2(25.0666, 23)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_su287")
+
+[node name="DialogueInteractableArea" type="Area2D" parent="." node_paths=PackedStringArray("follower")]
+script = ExtResource("2_5hpqh")
+follower = NodePath("..")
+self_character_type = 2
+self_all_dialogues = Array[Resource("res://addons/dialogue_manager/dialogue_resource.gd")]([ExtResource("2_5cu37")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteractableArea"]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_sc0lt")
+
+[node name="CharacterAnimation" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("character")]
+position = Vector2(0, -14)
+sprite_frames = ExtResource("2_pp4ma")
+animation = &"IDLE"
+frame_progress = 0.916088
+script = ExtResource("2_hdbrj")
+character = NodePath("..")

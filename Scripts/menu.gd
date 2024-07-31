@@ -6,7 +6,9 @@ func _process(delta):
 	$BG_Menu.scroll_offset.x -= speed * delta
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Scenes/first.tscn")
+	get_parent().current_index = 1
+	get_parent().anim()
 
 func _on_quit_pressed():
 	get_tree().quit()
+

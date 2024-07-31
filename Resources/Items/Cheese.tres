@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemFromResource" load_steps=4 format=3 uid="uid://c7x5ahbp5fo0a"]
+
+[ext_resource type="Script" path="res://Scripts/InventorySystem/AbstractItem.gd" id="1_073li"]
+[ext_resource type="Texture2D" uid="uid://bqyccyschg7ug" path="res://Sprites/BananaBoy assets/Ui/Inventory/Items.png" id="2_f032i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mtv6"]
+atlas = ExtResource("2_f032i")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_073li")
+item_name = "Cheese"
+type = 4
+texture = SubResource("AtlasTexture_2mtv6")

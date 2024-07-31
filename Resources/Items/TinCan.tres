@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemFromResource" load_steps=4 format=3 uid="uid://3uf7fmkkjq1s"]
+
+[ext_resource type="Script" path="res://Scripts/InventorySystem/AbstractItem.gd" id="1_7vd7e"]
+[ext_resource type="Texture2D" uid="uid://bqyccyschg7ug" path="res://Sprites/BananaBoy assets/Ui/Inventory/Items.png" id="2_0rx5k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djtm2"]
+atlas = ExtResource("2_0rx5k")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_7vd7e")
+item_name = "Tin can"
+type = 3
+texture = SubResource("AtlasTexture_djtm2")

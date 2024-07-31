@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TaskFromResource" load_steps=3 format=3 uid="uid://0vogmban5gcm"]
+
+[ext_resource type="Resource" uid="uid://canafybcy3btf" path="res://Resources/Inventories/AllItems.tres" id="1_oqpwl"]
+[ext_resource type="Script" path="res://Scripts/TaskSystem/TaskFromResource.gd" id="2_src1h"]
+
+[resource]
+script = ExtResource("2_src1h")
+all_items = ExtResource("1_oqpwl")
+task_type = 1
+item_type = 0
+item_recipient = 0
+needed = 2
+recipient = 1

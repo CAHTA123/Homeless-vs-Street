@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://p3scro4hdmlo"]
+
+[ext_resource type="PackedScene" uid="uid://bo1fp4iq0k3eg" path="res://Scenes/lvl.tscn" id="1_d1o6k"]
+[ext_resource type="AudioStream" uid="uid://cadx8s0fgf5xw" path="res://Audio/I Thought I Knew (4).mp3" id="2_k4etq"]
+
+[node name="lvl-4" instance=ExtResource("1_d1o6k")]
+
+[node name="Audio" parent="." index="2"]
+stream = ExtResource("2_k4etq")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://qbfc46qi5gfw"
+path="res://.godot/imported/SideneyFound.dialogue-58f1cc883f6419864d454ef979ca15f8.tres"
+
+[deps]
+
+source_file="res://Resources/Dialogues/SideneyFound.dialogue"
+dest_files=["res://.godot/imported/SideneyFound.dialogue-58f1cc883f6419864d454ef979ca15f8.tres"]
+
+[params]
+
+defaults=true

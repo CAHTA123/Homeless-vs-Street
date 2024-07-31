@@ -1,0 +1,126 @@
+[gd_scene load_steps=21 format=3 uid="uid://vssq8e3bin2p"]
+
+[ext_resource type="PackedScene" uid="uid://o6jyanfc3vds" path="res://Scenes/Characters/SimpleCharacter.tscn" id="1_3jq8c"]
+[ext_resource type="Script" path="res://Scripts/Characters/Anim.gd" id="2_2pp2q"]
+[ext_resource type="Texture2D" uid="uid://b4g385ukcfgbs" path="res://Sprites/BananaBoy assets/Characters/Trader/Trader stay animation.png" id="2_3b1hl"]
+[ext_resource type="Resource" uid="uid://divaea18qg4ww" path="res://Resources/Dialogues/MeetTrader.dialogue" id="3_64gix"]
+[ext_resource type="Script" path="res://Scripts/Interact/DialogueInteractableArea.gd" id="3_te7r5"]
+[ext_resource type="Texture2D" uid="uid://k8ve8ut6uyen" path="res://Sprites/BananaBoy assets/Characters/Trader/Trader walk animation.png" id="3_v84mb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqkn7"]
+size = Vector2(25.0667, 20.0333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ut00"]
+atlas = ExtResource("2_3b1hl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex8k7"]
+atlas = ExtResource("2_3b1hl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vk2x"]
+atlas = ExtResource("2_3b1hl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_514uk"]
+atlas = ExtResource("2_3b1hl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlkhg"]
+atlas = ExtResource("2_3b1hl")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap8ui"]
+atlas = ExtResource("2_3b1hl")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u71vs"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fcnb"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekk05"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s612n"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk0r3"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhehj"]
+atlas = ExtResource("3_v84mb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7p6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ut00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ex8k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vk2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_514uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlkhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap8ui")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u71vs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fcnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekk05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s612n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk0r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhehj")
+}],
+"loop": true,
+"name": &"WALK",
+"speed": 10.0
+}]
+
+[node name="Trader" instance=ExtResource("1_3jq8c")]
+
+[node name="DialogueInteractableArea" type="Area2D" parent="." index="0"]
+script = ExtResource("3_te7r5")
+self_character_type = 3
+self_all_dialogues = Array[Resource("res://addons/dialogue_manager/dialogue_resource.gd")]([ExtResource("3_64gix")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteractableArea" index="0"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_gqkn7")
+
+[node name="CharacterAnimation" type="AnimatedSprite2D" parent="." index="1" node_paths=PackedStringArray("character")]
+position = Vector2(-1, -13)
+sprite_frames = SubResource("SpriteFrames_p7p6h")
+animation = &"IDLE"
+script = ExtResource("2_2pp2q")
+character = NodePath("..")

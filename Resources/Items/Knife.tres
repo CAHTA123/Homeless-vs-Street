@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemFromResource" load_steps=4 format=3 uid="uid://d1gwrg205sulr"]
+
+[ext_resource type="Script" path="res://Scripts/InventorySystem/AbstractItem.gd" id="1_6kbgo"]
+[ext_resource type="Texture2D" uid="uid://bqyccyschg7ug" path="res://Sprites/BananaBoy assets/Ui/Inventory/Items.png" id="2_8qog1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v6f3"]
+atlas = ExtResource("2_8qog1")
+region = Rect2(128, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_6kbgo")
+item_name = "Knife"
+type = 0
+texture = SubResource("AtlasTexture_2v6f3")
